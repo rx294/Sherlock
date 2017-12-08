@@ -112,6 +112,80 @@ events = events.withColumn("Technique", conv_dfarray(TECHNIQUE)).withColumn("Tac
 events.write.format("org.elasticsearch.spark.sql").option("es.nodes","192.168.1.198").mode("overwrite").save('test/wineventlog')
 
 
+# CAR-2013-07-002: RDP Connection Detection
+TECHNIQUE = ['Remote Desktop Protocol']
+TACTICS = ['Lateral Movement']
+
+es_df=spark.read.format("org.elasticsearch.spark.sql").option("es.nodes","192.168.1.198").load("winlogbeat*/wineventlog").drop('tags')
+sysmon_df = es_df.where(col('log_name') == 'Microsoft-Windows-Sysmon/Operational')
+network_events = sysmon_df.where(col('event_id') == 3)
+events = network_events.where((col('event_data.DestinationPort') == 3389) & (col('event_data.SourcePort') == 3389))
+
+events = events.withColumn("Technique", conv_dfarray(TECHNIQUE)).withColumn("Tactics", conv_dfarray(TACTICS))
+events.write.format("org.elasticsearch.spark.sql").option("es.nodes","192.168.1.198").mode("overwrite").save('test/wineventlog')
+
+# CAR-2013-07-005: Command Line Usage of Archiving Software
+TECHNIQUE = ['Masquerading']
+TACTICS = ['Defense Evasion']
+
+# regex_filter =  udf (lambda x: re.search(r".+ a .+", x), BooleanType())
+
+def regex_filter(x):
+    regexs = ['.* a .*']
+    
+    if x and x.strip():
+        for r in regexs:
+            if re.match(r, x, re.IGNORECASE):
+                return True
+    return False 
+    
+    
+filter_udf = udf(regex_filter, BooleanType())
+
+es_df=spark.read.format("org.elasticsearch.spark.sql").option("es.nodes","192.168.1.198").load("winlogbeat*/wineventlog").drop('tags')
+sysmon_df = es_df.where(col('log_name') == 'Microsoft-Windows-Sysmon/Operational')
+process_create_events = sysmon_df.where(col('event_id') == 1)
+events = process_create_events.where(filter_udf('event_data.CommandLine'))
+
+events = events.withColumn("Technique", conv_dfarray(TECHNIQUE)).withColumn("Tactics", conv_dfarray(TACTICS))
+events.write.format("org.elasticsearch.spark.sql").option("es.nodes","192.168.1.198").mode("overwrite").save('test/wineventlog')
 
 
+# CAR-2013-08-001: Execution with schtasks
+TECHNIQUE = ['Scheduled Task']
+TACTICS = ['Execution', 'Persistence', 'Privilege Escalation']
+
+es_df=spark.read.format("org.elasticsearch.spark.sql").option("es.nodes","192.168.1.198").load("winlogbeat*/wineventlog").drop('tags')
+sysmon_df = es_df.where(col('log_name') == 'Microsoft-Windows-Sysmon/Operational')
+process_create_events = sysmon_df.where(col('event_id') == 1)
+events = process_create_events.where((col('event_data.Image') == "C:\\Windows\\System32\\schtasks.exe"))
+
+events = events.withColumn("Technique", conv_dfarray(TECHNIQUE)).withColumn("Tactics", conv_dfarray(TACTICS))
+events.write.format("org.elasticsearch.spark.sql").option("es.nodes","192.168.1.198").mode("overwrite").save('test/wineventlog')
+
+# CAR-2014-03-006: RunDLL32.exe monitoring
+TECHNIQUE = ['Rundll32']
+TACTICS = ['Defense Evasion', 'Execution']
+
+es_df=spark.read.format("org.elasticsearch.spark.sql").option("es.nodes","192.168.1.198").load("winlogbeat*/wineventlog").drop('tags')
+sysmon_df = es_df.where(col('log_name') == 'Microsoft-Windows-Sysmon/Operational')
+process_create_events = sysmon_df.where(col('event_id') == 1)
+events = process_create_events.where((col('event_data.Image') == "C:\\Windows\\System32\\rundll32.exe"))
+
+events = events.withColumn("Technique", conv_dfarray(TECHNIQUE)).withColumn("Tactics", conv_dfarray(TACTICS))
+events.write.format("org.elasticsearch.spark.sql").option("es.nodes","192.168.1.198").mode("overwrite").save('test/wineventlog')
+
+
+# CAR-2014-04-003: Powershell Execution
+TECHNIQUE = ['PowerShell','Scripting']
+TACTICS = ['Defense Evasion', 'Execution']
+
+es_df=spark.read.format("org.elasticsearch.spark.sql").option("es.nodes","192.168.1.198").load("winlogbeat*/wineventlog").drop('tags')
+sysmon_df = es_df.where(col('log_name') == 'Microsoft-Windows-Sysmon/Operational')
+process_create_events = sysmon_df.where(col('event_id') == 1)
+ps_events = process_create_events.where((col('event_data.Image') == "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"))
+events = process_create_events.where((col('event_data.ParentImage') != "C:\\Windows\\explorer.exe"))
+
+events = events.withColumn("Technique", conv_dfarray(TECHNIQUE)).withColumn("Tactics", conv_dfarray(TACTICS))
+events.write.format("org.elasticsearch.spark.sql").option("es.nodes","192.168.1.198").mode("overwrite").save('test/wineventlog')
 
