@@ -85,3 +85,33 @@ events = events.withColumn("Technique", conv_dfarray(TECHNIQUE)).withColumn("Tac
 events.write.format("org.elasticsearch.spark.sql").option("es.nodes","192.168.1.198").mode("overwrite").save('test/wineventlog')
 
 
+
+# CAR-2013-05-003: SMB Write Request
+TECHNIQUE = ['Remote File Copy','Windows Admin Shares','Legitimate Credentials']
+TACTICS = ['Command and Control', 'Lateral Movement','Defense Evasion', 'Persistence', 'Privilege Escalation']
+
+es_df=spark.read.format("org.elasticsearch.spark.sql").option("es.nodes","192.168.1.198").load("winlogbeat*/wineventlog").drop('tags')
+sysmon_df = es_df.where(col('log_name') == 'Microsoft-Windows-Sysmon/Operational')
+network_events = sysmon_df.where(col('event_id') == 3)
+events = network_events.where(col('event_data.DestinationPort') == 445)
+
+events = events.withColumn("Technique", conv_dfarray(TECHNIQUE)).withColumn("Tactics", conv_dfarray(TACTICS))
+events.write.format("org.elasticsearch.spark.sql").option("es.nodes","192.168.1.198").mode("overwrite").save('test/wineventlog')
+
+
+# CAR-2013-05-004: Execution with AT
+TECHNIQUE = ['Scheduled Task']
+TACTICS = ['Execution', 'Persistence', 'Privilege Escalation']
+
+es_df=spark.read.format("org.elasticsearch.spark.sql").option("es.nodes","192.168.1.198").load("winlogbeat*/wineventlog").drop('tags')
+sysmon_df = es_df.where(col('log_name') == 'Microsoft-Windows-Sysmon/Operational')
+process_create_events = sysmon_df.where(col('event_id') == 1)
+events = process_create_events.where((col('event_data.Image') == "C:\\Windows\\System32\\at.exe"))
+
+events = events.withColumn("Technique", conv_dfarray(TECHNIQUE)).withColumn("Tactics", conv_dfarray(TACTICS))
+events.write.format("org.elasticsearch.spark.sql").option("es.nodes","192.168.1.198").mode("overwrite").save('test/wineventlog')
+
+
+
+
+
