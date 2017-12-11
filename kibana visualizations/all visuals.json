@@ -1,0 +1,338 @@
+[
+  {
+    "_id": "AWBD1dXw2lDISLgeznFA",
+    "_type": "visualization",
+    "_source": {
+      "title": "Systems",
+      "visState": "{\"title\":\"Systems\",\"type\":\"table\",\"params\":{\"perPage\":3,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"showTotal\":false,\"totalFunc\":\"sum\",\"type\":\"table\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"Event Count\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"host.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"_term\",\"customLabel\":\"Systems\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"query\":{\"match_all\":{}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "6",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lateral Movement",
+      "visState": "{\n  \"title\": \"Lateral Movement\",\n  \"type\": \"metric\",\n  \"params\": {\n    \"addTooltip\": true,\n    \"addLegend\": false,\n    \"type\": \"gauge\",\n    \"gauge\": {\n      \"verticalSplit\": false,\n      \"autoExtend\": false,\n      \"percentageMode\": false,\n      \"gaugeType\": \"Metric\",\n      \"gaugeStyle\": \"Full\",\n      \"backStyle\": \"Full\",\n      \"orientation\": \"vertical\",\n      \"colorSchema\": \"Green to Red\",\n      \"gaugeColorMode\": \"None\",\n      \"useRange\": false,\n      \"colorsRange\": [\n        {\n          \"from\": 0,\n          \"to\": 100\n        }\n      ],\n      \"invertColors\": false,\n      \"labels\": {\n        \"show\": true,\n        \"color\": \"black\"\n      },\n      \"scale\": {\n        \"show\": false,\n        \"labels\": false,\n        \"color\": \"#333\",\n        \"width\": 2\n      },\n      \"type\": \"simple\",\n      \"style\": {\n        \"fontSize\": \"36\",\n        \"bgColor\": false,\n        \"labelColor\": false,\n        \"subText\": \"Lateral Movement\",\n        \"bgFill\": \"#1f78b4\"\n      }\n    }\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"enabled\": true,\n      \"type\": \"count\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"customLabel\": \"\"\n      }\n    }\n  ],\n  \"listeners\": {}\n}",
+      "uiStateJSON": "{\n  \"vis\": {\n    \"defaultColors\": {\n      \"0 - 100\": \"rgb(0,104,55)\"\n    }\n  }\n}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"index\": \"AWBDrZ1w2lDISLgezmnW\",\n  \"query\": {\n    \"match_all\": {}\n  },\n  \"filter\": [\n    {\n      \"meta\": {\n        \"index\": \"AWBDrZ1w2lDISLgezmnW\",\n        \"negate\": false,\n        \"disabled\": false,\n        \"alias\": \"Lateral Movement\",\n        \"type\": \"phrase\",\n        \"key\": \"Tactics\",\n        \"value\": \"Lateral Movement\"\n      },\n      \"query\": {\n        \"match\": {\n          \"Tactics\": {\n            \"query\": \"Lateral Movement\",\n            \"type\": \"phrase\"\n          }\n        }\n      },\n      \"$state\": {\n        \"store\": \"appState\"\n      }\n    }\n  ]\n}"
+      }
+    }
+  },
+  {
+    "_id": "9",
+    "_type": "visualization",
+    "_source": {
+      "title": "Exfiltration",
+      "visState": "{\n  \"title\": \"Exfiltration\",\n  \"type\": \"metric\",\n  \"params\": {\n    \"addTooltip\": true,\n    \"addLegend\": false,\n    \"type\": \"gauge\",\n    \"gauge\": {\n      \"verticalSplit\": false,\n      \"autoExtend\": false,\n      \"percentageMode\": false,\n      \"gaugeType\": \"Metric\",\n      \"gaugeStyle\": \"Full\",\n      \"backStyle\": \"Full\",\n      \"orientation\": \"vertical\",\n      \"colorSchema\": \"Green to Red\",\n      \"gaugeColorMode\": \"None\",\n      \"useRange\": false,\n      \"colorsRange\": [\n        {\n          \"from\": 0,\n          \"to\": 100\n        }\n      ],\n      \"invertColors\": false,\n      \"labels\": {\n        \"show\": true,\n        \"color\": \"black\"\n      },\n      \"scale\": {\n        \"show\": false,\n        \"labels\": false,\n        \"color\": \"#333\",\n        \"width\": 2\n      },\n      \"type\": \"simple\",\n      \"style\": {\n        \"fontSize\": \"36\",\n        \"bgColor\": false,\n        \"labelColor\": false,\n        \"subText\": \"Exfiltration\",\n        \"bgFill\": \"#fb9a99\"\n      }\n    }\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"enabled\": true,\n      \"type\": \"count\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"customLabel\": \"\"\n      }\n    }\n  ],\n  \"listeners\": {}\n}",
+      "uiStateJSON": "{\n  \"vis\": {\n    \"defaultColors\": {\n      \"0 - 100\": \"rgb(0,104,55)\"\n    }\n  }\n}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"index\": \"AWBDrZ1w2lDISLgezmnW\",\n  \"query\": {\n    \"match_all\": {}\n  },\n  \"filter\": [\n    {\n      \"meta\": {\n        \"index\": \"AWBDrZ1w2lDISLgezmnW\",\n        \"negate\": false,\n        \"disabled\": false,\n        \"alias\": \"Exfiltration\",\n        \"type\": \"phrase\",\n        \"key\": \"Tactics\",\n        \"value\": \"Exfiltration\"\n      },\n      \"query\": {\n        \"match\": {\n          \"Tactics\": {\n            \"query\": \"Exfiltration\",\n            \"type\": \"phrase\"\n          }\n        }\n      },\n      \"$state\": {\n        \"store\": \"appState\"\n      }\n    }\n  ]\n}"
+      }
+    }
+  },
+  {
+    "_id": "1",
+    "_type": "visualization",
+    "_source": {
+      "title": "Persistence",
+      "visState": "{\n  \"title\": \"Persistence\",\n  \"type\": \"metric\",\n  \"params\": {\n    \"addTooltip\": true,\n    \"addLegend\": false,\n    \"type\": \"gauge\",\n    \"gauge\": {\n      \"verticalSplit\": false,\n      \"autoExtend\": false,\n      \"percentageMode\": false,\n      \"gaugeType\": \"Metric\",\n      \"gaugeStyle\": \"Full\",\n      \"backStyle\": \"Full\",\n      \"orientation\": \"vertical\",\n      \"colorSchema\": \"Green to Red\",\n      \"gaugeColorMode\": \"None\",\n      \"useRange\": false,\n      \"colorsRange\": [\n        {\n          \"from\": 0,\n          \"to\": 100\n        }\n      ],\n      \"invertColors\": false,\n      \"labels\": {\n        \"show\": true,\n        \"color\": \"black\"\n      },\n      \"scale\": {\n        \"show\": false,\n        \"labels\": false,\n        \"color\": \"#333\",\n        \"width\": 2\n      },\n      \"type\": \"simple\",\n      \"style\": {\n        \"fontSize\": \"36\",\n        \"bgColor\": false,\n        \"labelColor\": false,\n        \"subText\": \"Persistence\",\n        \"bgFill\": \"#33a02c\"\n      }\n    }\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"enabled\": true,\n      \"type\": \"count\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"customLabel\": \"\"\n      }\n    }\n  ],\n  \"listeners\": {}\n}",
+      "uiStateJSON": "{\n  \"vis\": {\n    \"defaultColors\": {\n      \"0 - 100\": \"rgb(0,104,55)\"\n    }\n  }\n}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"index\": \"AWBDrZ1w2lDISLgezmnW\",\n  \"query\": {\n    \"match_all\": {}\n  },\n  \"filter\": [\n    {\n      \"meta\": {\n        \"index\": \"AWBDrZ1w2lDISLgezmnW\",\n        \"negate\": false,\n        \"disabled\": false,\n        \"alias\": \"Persistence\",\n        \"type\": \"phrase\",\n        \"key\": \"Tactics\",\n        \"value\": \"Persistence\"\n      },\n      \"query\": {\n        \"match\": {\n          \"Tactics\": {\n            \"query\": \"Persistence\",\n            \"type\": \"phrase\"\n          }\n        }\n      },\n      \"$state\": {\n        \"store\": \"appState\"\n      }\n    }\n  ]\n}"
+      }
+    }
+  },
+  {
+    "_id": "8",
+    "_type": "visualization",
+    "_source": {
+      "title": "Collection",
+      "visState": "{\n  \"title\": \"Collection\",\n  \"type\": \"metric\",\n  \"params\": {\n    \"addTooltip\": true,\n    \"addLegend\": false,\n    \"type\": \"gauge\",\n    \"gauge\": {\n      \"verticalSplit\": false,\n      \"autoExtend\": false,\n      \"percentageMode\": false,\n      \"gaugeType\": \"Metric\",\n      \"gaugeStyle\": \"Full\",\n      \"backStyle\": \"Full\",\n      \"orientation\": \"vertical\",\n      \"colorSchema\": \"Green to Red\",\n      \"gaugeColorMode\": \"None\",\n      \"useRange\": false,\n      \"colorsRange\": [\n        {\n          \"from\": 0,\n          \"to\": 100\n        }\n      ],\n      \"invertColors\": false,\n      \"labels\": {\n        \"show\": true,\n        \"color\": \"black\"\n      },\n      \"scale\": {\n        \"show\": false,\n        \"labels\": false,\n        \"color\": \"#333\",\n        \"width\": 2\n      },\n      \"type\": \"simple\",\n      \"style\": {\n        \"fontSize\": \"36\",\n        \"bgColor\": false,\n        \"labelColor\": false,\n        \"subText\": \"Collection\",\n        \"bgFill\": \"#ff7f00\"\n      }\n    }\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"enabled\": true,\n      \"type\": \"count\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"customLabel\": \"\"\n      }\n    }\n  ],\n  \"listeners\": {}\n}",
+      "uiStateJSON": "{\n  \"vis\": {\n    \"defaultColors\": {\n      \"0 - 100\": \"rgb(0,104,55)\"\n    }\n  }\n}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"index\": \"AWBDrZ1w2lDISLgezmnW\",\n  \"query\": {\n    \"match_all\": {}\n  },\n  \"filter\": [\n    {\n      \"meta\": {\n        \"index\": \"AWBDrZ1w2lDISLgezmnW\",\n        \"negate\": false,\n        \"disabled\": false,\n        \"alias\": \"Collection\",\n        \"type\": \"phrase\",\n        \"key\": \"Tactics\",\n        \"value\": \"Collection\"\n      },\n      \"query\": {\n        \"match\": {\n          \"Tactics\": {\n            \"query\": \"Collection\",\n            \"type\": \"phrase\"\n          }\n        }\n      },\n      \"$state\": {\n        \"store\": \"appState\"\n      }\n    }\n  ]\n}"
+      }
+    }
+  },
+  {
+    "_id": "5",
+    "_type": "visualization",
+    "_source": {
+      "title": "Discovery",
+      "visState": "{\n  \"title\": \"Discovery\",\n  \"type\": \"metric\",\n  \"params\": {\n    \"addTooltip\": true,\n    \"addLegend\": false,\n    \"type\": \"gauge\",\n    \"gauge\": {\n      \"verticalSplit\": false,\n      \"autoExtend\": false,\n      \"percentageMode\": false,\n      \"gaugeType\": \"Metric\",\n      \"gaugeStyle\": \"Full\",\n      \"backStyle\": \"Full\",\n      \"orientation\": \"vertical\",\n      \"colorSchema\": \"Green to Red\",\n      \"gaugeColorMode\": \"None\",\n      \"useRange\": false,\n      \"colorsRange\": [\n        {\n          \"from\": 0,\n          \"to\": 100\n        }\n      ],\n      \"invertColors\": false,\n      \"labels\": {\n        \"show\": true,\n        \"color\": \"black\"\n      },\n      \"scale\": {\n        \"show\": false,\n        \"labels\": false,\n        \"color\": \"#333\",\n        \"width\": 2\n      },\n      \"type\": \"simple\",\n      \"style\": {\n        \"fontSize\": \"36\",\n        \"bgColor\": false,\n        \"labelColor\": false,\n        \"subText\": \"Discovery\",\n        \"bgFill\": \"#a6cee3\"\n      }\n    }\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"enabled\": true,\n      \"type\": \"count\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"customLabel\": \"\"\n      }\n    }\n  ],\n  \"listeners\": {}\n}",
+      "uiStateJSON": "{\n  \"vis\": {\n    \"defaultColors\": {\n      \"0 - 100\": \"rgb(0,104,55)\"\n    }\n  }\n}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"index\": \"AWBDrZ1w2lDISLgezmnW\",\n  \"query\": {\n    \"match_all\": {}\n  },\n  \"filter\": [\n    {\n      \"meta\": {\n        \"index\": \"AWBDrZ1w2lDISLgezmnW\",\n        \"negate\": false,\n        \"disabled\": false,\n        \"alias\": \"Discovery\",\n        \"type\": \"phrase\",\n        \"key\": \"Tactics\",\n        \"value\": \"Discovery\"\n      },\n      \"query\": {\n        \"match\": {\n          \"Tactics\": {\n            \"query\": \"Discovery\",\n            \"type\": \"phrase\"\n          }\n        }\n      },\n      \"$state\": {\n        \"store\": \"appState\"\n      }\n    }\n  ]\n}"
+      }
+    }
+  },
+  {
+    "_id": "7",
+    "_type": "visualization",
+    "_source": {
+      "title": "Execution",
+      "visState": "{\n  \"title\": \"Execution\",\n  \"type\": \"metric\",\n  \"params\": {\n    \"addTooltip\": true,\n    \"addLegend\": false,\n    \"type\": \"gauge\",\n    \"gauge\": {\n      \"verticalSplit\": false,\n      \"autoExtend\": false,\n      \"percentageMode\": false,\n      \"gaugeType\": \"Metric\",\n      \"gaugeStyle\": \"Full\",\n      \"backStyle\": \"Full\",\n      \"orientation\": \"vertical\",\n      \"colorSchema\": \"Green to Red\",\n      \"gaugeColorMode\": \"None\",\n      \"useRange\": false,\n      \"colorsRange\": [\n        {\n          \"from\": 0,\n          \"to\": 100\n        }\n      ],\n      \"invertColors\": false,\n      \"labels\": {\n        \"show\": true,\n        \"color\": \"black\"\n      },\n      \"scale\": {\n        \"show\": false,\n        \"labels\": false,\n        \"color\": \"#333\",\n        \"width\": 2\n      },\n      \"type\": \"simple\",\n      \"style\": {\n        \"fontSize\": \"36\",\n        \"bgColor\": false,\n        \"labelColor\": false,\n        \"subText\": \"Execution\",\n        \"bgFill\": \"#fdbf6f\"\n      }\n    }\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"enabled\": true,\n      \"type\": \"count\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"customLabel\": \"\"\n      }\n    }\n  ],\n  \"listeners\": {}\n}",
+      "uiStateJSON": "{\n  \"vis\": {\n    \"defaultColors\": {\n      \"0 - 100\": \"rgb(0,104,55)\"\n    }\n  }\n}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"index\": \"AWBDrZ1w2lDISLgezmnW\",\n  \"query\": {\n    \"match_all\": {}\n  },\n  \"filter\": [\n    {\n      \"meta\": {\n        \"index\": \"AWBDrZ1w2lDISLgezmnW\",\n        \"negate\": false,\n        \"disabled\": false,\n        \"alias\": \"Execution\",\n        \"type\": \"phrase\",\n        \"key\": \"Tactics\",\n        \"value\": \"Execution\"\n      },\n      \"query\": {\n        \"match\": {\n          \"Tactics\": {\n            \"query\": \"Execution\",\n            \"type\": \"phrase\"\n          }\n        }\n      },\n      \"$state\": {\n        \"store\": \"appState\"\n      }\n    }\n  ]\n}"
+      }
+    }
+  },
+  {
+    "_id": "AWBEdnnY2lDISLgezoBP",
+    "_type": "visualization",
+    "_source": {
+      "title": "Timeseries",
+      "visState": "{\"title\":\"Timeseries\",\"type\":\"timelion\",\"params\":{\"type\":\"timelion\",\"expression\":\".es(q='Tactics.keyword:Persistence', index=analytics).mvavg(3).color('#33a02c').label(Persistence),.es(q='Tactics.keyword:Privilege Escalation', index=analytics).mvavg(3).color('#b2df8a').label('Privilege Escalation'),.es(q='Tactics.keyword:Defense Evasion', index=analytics).mvavg(3).color('#cab2d6').label('Defense Evasion'),.es(q='Tactics.keyword:Credential Access', index=analytics).mvavg(3).color('#6a3d9a').label('Credential Access'),.es(q='Tactics.keyword:Discovery', index=analytics).mvavg(3).color('#a6cee3').label('Discovery'),.es(q='Tactics.keyword:Lateral Movement', index=analytics).mvavg(3).color('#1f78b4').label('Lateral Movement'),.es(q='Tactics.keyword:Execution', index=analytics).mvavg(3).color('#fdbf6f').label('Execution'),.es(q='Tactics.keyword:Collection', index=analytics).mvavg(3).color('#ff7f00').label('Collection'),.es(q='Tactics.keyword:Exfiltration', index=analytics).mvavg(3).color('#fb9a99').label('Exfiltration'),.es(q='Tactics.keyword:Command and Control', index=analytics).mvavg(3).color('#e31a1c').label('Command and Control')\",\"interval\":\"1d\"},\"aggs\":[],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"match_all\":{}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "10",
+    "_type": "visualization",
+    "_source": {
+      "title": "Command and Control",
+      "visState": "{\n  \"title\": \"Command and Control\",\n  \"type\": \"metric\",\n  \"params\": {\n    \"addTooltip\": true,\n    \"addLegend\": false,\n    \"type\": \"gauge\",\n    \"gauge\": {\n      \"verticalSplit\": false,\n      \"autoExtend\": false,\n      \"percentageMode\": false,\n      \"gaugeType\": \"Metric\",\n      \"gaugeStyle\": \"Full\",\n      \"backStyle\": \"Full\",\n      \"orientation\": \"vertical\",\n      \"colorSchema\": \"Green to Red\",\n      \"gaugeColorMode\": \"None\",\n      \"useRange\": false,\n      \"colorsRange\": [\n        {\n          \"from\": 0,\n          \"to\": 100\n        }\n      ],\n      \"invertColors\": false,\n      \"labels\": {\n        \"show\": true,\n        \"color\": \"black\"\n      },\n      \"scale\": {\n        \"show\": false,\n        \"labels\": false,\n        \"color\": \"#333\",\n        \"width\": 2\n      },\n      \"type\": \"simple\",\n      \"style\": {\n        \"fontSize\": \"36\",\n        \"bgColor\": false,\n        \"labelColor\": false,\n        \"subText\": \"Command and Control\",\n        \"bgFill\": \"#e31a1c\"\n      }\n    }\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"enabled\": true,\n      \"type\": \"count\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"customLabel\": \"\"\n      }\n    }\n  ],\n  \"listeners\": {}\n}",
+      "uiStateJSON": "{\n  \"vis\": {\n    \"defaultColors\": {\n      \"0 - 100\": \"rgb(0,104,55)\"\n    }\n  }\n}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"index\": \"AWBDrZ1w2lDISLgezmnW\",\n  \"query\": {\n    \"match_all\": {}\n  },\n  \"filter\": [\n    {\n      \"meta\": {\n        \"index\": \"AWBDrZ1w2lDISLgezmnW\",\n        \"negate\": false,\n        \"disabled\": false,\n        \"alias\": \"Command and Control\",\n        \"type\": \"phrase\",\n        \"key\": \"Tactics\",\n        \"value\": \"Command and Control\"\n      },\n      \"query\": {\n        \"match\": {\n          \"Tactics\": {\n            \"query\": \"Command and Control\",\n            \"type\": \"phrase\"\n          }\n        }\n      },\n      \"$state\": {\n        \"store\": \"appState\"\n      }\n    }\n  ]\n}"
+      }
+    }
+  },
+  {
+    "_id": "2",
+    "_type": "visualization",
+    "_source": {
+      "title": "Privilege Escalation",
+      "visState": "{\n  \"title\": \"Privilege Escalation\",\n  \"type\": \"metric\",\n  \"params\": {\n    \"addTooltip\": true,\n    \"addLegend\": false,\n    \"type\": \"gauge\",\n    \"gauge\": {\n      \"verticalSplit\": false,\n      \"autoExtend\": false,\n      \"percentageMode\": false,\n      \"gaugeType\": \"Metric\",\n      \"gaugeStyle\": \"Full\",\n      \"backStyle\": \"Full\",\n      \"orientation\": \"vertical\",\n      \"colorSchema\": \"Green to Red\",\n      \"gaugeColorMode\": \"None\",\n      \"useRange\": false,\n      \"colorsRange\": [\n        {\n          \"from\": 0,\n          \"to\": 100\n        }\n      ],\n      \"invertColors\": false,\n      \"labels\": {\n        \"show\": true,\n        \"color\": \"black\"\n      },\n      \"scale\": {\n        \"show\": false,\n        \"labels\": false,\n        \"color\": \"#333\",\n        \"width\": 2\n      },\n      \"type\": \"simple\",\n      \"style\": {\n        \"fontSize\": \"36\",\n        \"bgColor\": false,\n        \"labelColor\": false,\n        \"subText\": \"Privilege Escalation\",\n        \"bgFill\": \"#b2df8a\"\n      }\n    }\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"enabled\": true,\n      \"type\": \"count\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"customLabel\": \"\"\n      }\n    }\n  ],\n  \"listeners\": {}\n}",
+      "uiStateJSON": "{\n  \"vis\": {\n    \"defaultColors\": {\n      \"0 - 100\": \"rgb(0,104,55)\"\n    }\n  }\n}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"index\": \"AWBDrZ1w2lDISLgezmnW\",\n  \"query\": {\n    \"match_all\": {}\n  },\n  \"filter\": [\n    {\n      \"meta\": {\n        \"index\": \"AWBDrZ1w2lDISLgezmnW\",\n        \"negate\": false,\n        \"disabled\": false,\n        \"alias\": \"Privilege Escalation\",\n        \"type\": \"phrase\",\n        \"key\": \"Tactics\",\n        \"value\": \"Privilege Escalation\"\n      },\n      \"query\": {\n        \"match\": {\n          \"Tactics\": {\n            \"query\": \"Privilege Escalation\",\n            \"type\": \"phrase\"\n          }\n        }\n      },\n      \"$state\": {\n        \"store\": \"appState\"\n      }\n    }\n  ]\n}"
+      }
+    }
+  },
+  {
+    "_id": "4",
+    "_type": "visualization",
+    "_source": {
+      "title": "Credential Access",
+      "visState": "{\n  \"title\": \"Credential Access\",\n  \"type\": \"metric\",\n  \"params\": {\n    \"addTooltip\": true,\n    \"addLegend\": false,\n    \"type\": \"gauge\",\n    \"gauge\": {\n      \"verticalSplit\": false,\n      \"autoExtend\": false,\n      \"percentageMode\": false,\n      \"gaugeType\": \"Metric\",\n      \"gaugeStyle\": \"Full\",\n      \"backStyle\": \"Full\",\n      \"orientation\": \"vertical\",\n      \"colorSchema\": \"Green to Red\",\n      \"gaugeColorMode\": \"None\",\n      \"useRange\": false,\n      \"colorsRange\": [\n        {\n          \"from\": 0,\n          \"to\": 100\n        }\n      ],\n      \"invertColors\": false,\n      \"labels\": {\n        \"show\": true,\n        \"color\": \"black\"\n      },\n      \"scale\": {\n        \"show\": false,\n        \"labels\": false,\n        \"color\": \"#333\",\n        \"width\": 2\n      },\n      \"type\": \"simple\",\n      \"style\": {\n        \"fontSize\": \"36\",\n        \"bgColor\": false,\n        \"labelColor\": false,\n        \"subText\": \"Credential Access\",\n        \"bgFill\": \"#6a3d9a\"\n      }\n    }\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"enabled\": true,\n      \"type\": \"count\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"customLabel\": \"\"\n      }\n    }\n  ],\n  \"listeners\": {}\n}",
+      "uiStateJSON": "{\n  \"vis\": {\n    \"defaultColors\": {\n      \"0 - 100\": \"rgb(0,104,55)\"\n    }\n  }\n}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"index\": \"AWBDrZ1w2lDISLgezmnW\",\n  \"query\": {\n    \"match_all\": {}\n  },\n  \"filter\": [\n    {\n      \"meta\": {\n        \"index\": \"AWBDrZ1w2lDISLgezmnW\",\n        \"negate\": false,\n        \"disabled\": false,\n        \"alias\": \"Credential Access\",\n        \"type\": \"phrase\",\n        \"key\": \"Tactics\",\n        \"value\": \"Credential Access\"\n      },\n      \"query\": {\n        \"match\": {\n          \"Tactics\": {\n            \"query\": \"Credential Access\",\n            \"type\": \"phrase\"\n          }\n        }\n      },\n      \"$state\": {\n        \"store\": \"appState\"\n      }\n    }\n  ]\n}"
+      }
+    }
+  },
+  {
+    "_id": "3",
+    "_type": "visualization",
+    "_source": {
+      "title": "Defense Evasion",
+      "visState": "{\n  \"title\": \"Defense Evasion\",\n  \"type\": \"metric\",\n  \"params\": {\n    \"addTooltip\": true,\n    \"addLegend\": false,\n    \"type\": \"gauge\",\n    \"gauge\": {\n      \"verticalSplit\": false,\n      \"autoExtend\": false,\n      \"percentageMode\": false,\n      \"gaugeType\": \"Metric\",\n      \"gaugeStyle\": \"Full\",\n      \"backStyle\": \"Full\",\n      \"orientation\": \"vertical\",\n      \"colorSchema\": \"Green to Red\",\n      \"gaugeColorMode\": \"None\",\n      \"useRange\": false,\n      \"colorsRange\": [\n        {\n          \"from\": 0,\n          \"to\": 100\n        }\n      ],\n      \"invertColors\": false,\n      \"labels\": {\n        \"show\": true,\n        \"color\": \"black\"\n      },\n      \"scale\": {\n        \"show\": false,\n        \"labels\": false,\n        \"color\": \"#333\",\n        \"width\": 2\n      },\n      \"type\": \"simple\",\n      \"style\": {\n        \"fontSize\": \"36\",\n        \"bgColor\": false,\n        \"labelColor\": false,\n        \"subText\": \"Defense Evasion\",\n        \"bgFill\": \"#cab2d6\"\n      }\n    }\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"enabled\": true,\n      \"type\": \"count\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"customLabel\": \"\"\n      }\n    }\n  ],\n  \"listeners\": {}\n}",
+      "uiStateJSON": "{\n  \"vis\": {\n    \"defaultColors\": {\n      \"0 - 100\": \"rgb(0,104,55)\"\n    }\n  }\n}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"index\": \"AWBDrZ1w2lDISLgezmnW\",\n  \"query\": {\n    \"match_all\": {}\n  },\n  \"filter\": [\n    {\n      \"meta\": {\n        \"index\": \"AWBDrZ1w2lDISLgezmnW\",\n        \"negate\": false,\n        \"disabled\": false,\n        \"alias\": \"Defense Evasion\",\n        \"type\": \"phrase\",\n        \"key\": \"Tactics\",\n        \"value\": \"Defense Evasion\"\n      },\n      \"query\": {\n        \"match\": {\n          \"Tactics\": {\n            \"query\": \"Defense Evasion\",\n            \"type\": \"phrase\"\n          }\n        }\n      },\n      \"$state\": {\n        \"store\": \"appState\"\n      }\n    }\n  ]\n}"
+      }
+    }
+  },
+  {
+    "_id": "AWBEGVh42lDISLgeznnf",
+    "_type": "visualization",
+    "_source": {
+      "title": "Tactics",
+      "visState": "{\n  \"title\": \"Tactics\",\n  \"type\": \"pie\",\n  \"params\": {\n    \"addLegend\": true,\n    \"addTooltip\": true,\n    \"isDonut\": true,\n    \"legendPosition\": \"right\",\n    \"type\": \"pie\"\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"enabled\": true,\n      \"type\": \"count\",\n      \"schema\": \"metric\",\n      \"params\": {}\n    },\n    {\n      \"id\": \"2\",\n      \"enabled\": true,\n      \"type\": \"terms\",\n      \"schema\": \"segment\",\n      \"params\": {\n        \"field\": \"Tactics.keyword\",\n        \"size\": 5,\n        \"order\": \"desc\",\n        \"orderBy\": \"1\",\n        \"customLabel\": \"Tactics\"\n      }\n    }\n  ],\n  \"listeners\": {}\n}",
+      "uiStateJSON": "{\n  \"vis\": {\n    \"legendOpen\": true,\n    \"colors\": {\n        \"Persistence\":\"#33a02c\",\n        \"Privilege Escalation\": \"#b2df8a\",\n        \"Defense Evasion\": \"#cab2d6\",\n        \"Credential Access\": \"#6a3d9a\",\n        \"Discovery\": \"#a6cee3\",\n        \"Lateral Movement\": \"#1f78b4\",\n        \"Execution\" :\"#fdbf6f\",\n        \"Collection\": \"#ff7f00\",\n        \"Exfiltration\" :\"#fb9a99\",\n        \"Command and Control\": \"#e31a1c\"\n    }\n  }\n}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"index\": \"AWBDrZ1w2lDISLgezmnW\",\n  \"query\": {\n    \"match_all\": {}\n  },\n  \"filter\": []\n}"
+      }
+    }
+  },
+  {
+    "_id": "AWBEiHwX2lDISLgezoKY",
+    "_type": "visualization",
+    "_source": {
+      "title": "Persistence Pie",
+      "visState": "{\"title\":\"Persistence Pie\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"type\":\"pie\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"Technique.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Technique\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"legendOpen\":false}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"query\":{\"match_all\":{}},\"filter\":[{\"meta\":{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"negate\":false,\"disabled\":false,\"alias\":\"Persistence\",\"type\":\"phrase\",\"key\":\"Tactics\",\"value\":\"Persistence\"},\"query\":{\"match\":{\"Tactics\":{\"query\":\"Persistence\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
+      }
+    }
+  },
+  {
+    "_id": "AWBEkfqW2lDISLgezoUP",
+    "_type": "visualization",
+    "_source": {
+      "title": "Command and Control Pie",
+      "visState": "{\"aggs\":[{\"enabled\":true,\"id\":\"1\",\"params\":{},\"schema\":\"metric\",\"type\":\"count\"},{\"enabled\":true,\"id\":\"2\",\"params\":{\"customLabel\":\"Technique\",\"field\":\"Technique.keyword\",\"order\":\"desc\",\"orderBy\":\"1\",\"size\":5},\"schema\":\"segment\",\"type\":\"terms\"}],\"listeners\":{},\"params\":{\"addLegend\":true,\"addTooltip\":true,\"isDonut\":true,\"legendPosition\":\"right\",\"type\":\"pie\"},\"title\":\"Command and Control Pie\",\"type\":\"pie\"}",
+      "uiStateJSON": "{\"vis\":{\"legendOpen\":false}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"query\":{\"match_all\":{}},\"filter\":[{\"$state\":{\"store\":\"appState\"},\"meta\":{\"alias\":null,\"disabled\":false,\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"key\":\"Tactics\",\"negate\":false,\"type\":\"phrase\",\"value\":\"Command and Control\"},\"query\":{\"match\":{\"Tactics\":{\"query\":\"Command and Control\",\"type\":\"phrase\"}}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "AWBEi3-32lDISLgezoNA",
+    "_type": "visualization",
+    "_source": {
+      "title": "Privilege Escalation Pie",
+      "visState": "{\"title\":\"Privilege Escalation Pie\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"type\":\"pie\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"Technique.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Technique\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"legendOpen\":false}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"query\":{\"match_all\":{}},\"filter\":[{\"meta\":{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"negate\":false,\"disabled\":false,\"alias\":\"Privilege Escalation\",\"type\":\"phrase\",\"key\":\"Tactics\",\"value\":\"Privilege Escalation\"},\"query\":{\"match\":{\"Tactics\":{\"query\":\"Privilege Escalation\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
+      }
+    }
+  },
+  {
+    "_id": "AWBEjy3w2lDISLgezoQ6",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lateral Movement Pie",
+      "visState": "{\"title\":\"Lateral Movement Pie\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"type\":\"pie\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"Technique.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Technique\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"legendOpen\":false}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"query\":{\"match_all\":{}},\"filter\":[{\"meta\":{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"phrase\",\"key\":\"Tactics\",\"value\":\"Lateral Movement\"},\"query\":{\"match\":{\"Tactics\":{\"query\":\"Lateral Movement\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
+      }
+    }
+  },
+  {
+    "_id": "AWBEi9Cz2lDISLgezoNt",
+    "_type": "visualization",
+    "_source": {
+      "title": "Defense Evasion Pie",
+      "visState": "{\"title\":\"Defense Evasion Pie\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"type\":\"pie\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"Technique.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Technique\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"legendOpen\":false}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"query\":{\"match_all\":{}},\"filter\":[{\"meta\":{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"phrase\",\"key\":\"Tactics\",\"value\":\"Defense Evasion\"},\"query\":{\"match\":{\"Tactics\":{\"query\":\"Defense Evasion\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
+      }
+    }
+  },
+  {
+    "_id": "AWBEj9rt2lDISLgezoRu",
+    "_type": "visualization",
+    "_source": {
+      "title": "Execution Pie",
+      "visState": "{\"title\":\"Execution Pie\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"type\":\"pie\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"Technique.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Technique\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"legendOpen\":false}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"query\":{\"match_all\":{}},\"filter\":[{\"meta\":{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"phrase\",\"key\":\"Tactics\",\"value\":\"Execution\"},\"query\":{\"match\":{\"Tactics\":{\"query\":\"Execution\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
+      }
+    }
+  },
+  {
+    "_id": "AWBEjXVR2lDISLgezoPK",
+    "_type": "visualization",
+    "_source": {
+      "title": "Credential Access Pie",
+      "visState": "{\"title\":\"Credential Access Pie\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"type\":\"pie\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"Technique.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Technique\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"query\":{\"match_all\":{}},\"filter\":[{\"meta\":{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"phrase\",\"key\":\"Tactics\",\"value\":\"Credential Access\"},\"query\":{\"match\":{\"Tactics\":{\"query\":\"Credential Access\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
+      }
+    }
+  },
+  {
+    "_id": "AWBEkSnr2lDISLgezoTa",
+    "_type": "visualization",
+    "_source": {
+      "title": "Exfiltration Pie",
+      "visState": "{\"title\":\"Exfiltration Pie\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"type\":\"pie\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"Technique.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Technique\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"query\":{\"match_all\":{}},\"filter\":[{\"meta\":{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"phrase\",\"key\":\"Tactics\",\"value\":\"Exfiltration\"},\"query\":{\"match\":{\"Tactics\":{\"query\":\"Exfiltration\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
+      }
+    }
+  },
+  {
+    "_id": "AWBEjlrz2lDISLgezoQC",
+    "_type": "visualization",
+    "_source": {
+      "title": "Discovery Pie",
+      "visState": "{\"title\":\"Discovery Pie\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":false,\"type\":\"pie\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"Technique.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Technique\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"query\":{\"match_all\":{}},\"filter\":[{\"meta\":{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"phrase\",\"key\":\"Tactics\",\"value\":\"Discovery\"},\"query\":{\"match\":{\"Tactics\":{\"query\":\"Discovery\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
+      }
+    }
+  },
+  {
+    "_id": "AWBEkH-V2lDISLgezoSk",
+    "_type": "visualization",
+    "_source": {
+      "title": "Collection Pie",
+      "visState": "{\"title\":\"Collection Pie\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"type\":\"pie\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"Technique.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Technique\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"query\":{\"match_all\":{}},\"filter\":[{\"meta\":{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"phrase\",\"key\":\"Tactics\",\"value\":\"Collection\"},\"query\":{\"match\":{\"Tactics\":{\"query\":\"Collection\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
+      }
+    }
+  },
+  {
+    "_id": "AWBEl09e2lDISLgezoZw",
+    "_type": "visualization",
+    "_source": {
+      "title": "Hosts",
+      "visState": "{\"title\":\"Hosts\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"showTotal\":false,\"totalFunc\":\"sum\",\"type\":\"table\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"host.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Hostname\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"query\":{\"match_all\":{}},\"filter\":[]}"
+      }
+    }
+  }
+]
