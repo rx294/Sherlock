@@ -84,7 +84,7 @@ if __name__ == '__main__':
 
     cars = load_cars()
     start_time = datetime.datetime.now() + datetime.timedelta(days = -10)
-    # endtime = datetime.datetime.now() + datetime.timedelta(days = -1)
+    # endtime = datetime.datetime.now() + datetime.timedelta(days = 1)
 
     # initizalize time for all cars to starttime
     for car in cars:
@@ -94,7 +94,7 @@ if __name__ == '__main__':
     for car in itertools.cycle(cars):
         es_df = get_es_df()
         if is_ready(car.time,car.duration):
-            print('ready')
+            print('Running: '+ car.__module__)
             starttime = car.time
             time_delta =  datetime.timedelta(minutes = car.duration)
             endtime = car.time + time_delta
@@ -108,5 +108,6 @@ if __name__ == '__main__':
             write_es_df(events)
             car.time = endtime
         else:
+            print('Waiting to be ready...')
             time.sleep(30)
 

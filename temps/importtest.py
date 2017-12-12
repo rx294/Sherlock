@@ -5,4 +5,5 @@ mod = import_module('testclass')
 met = getattr(mod, 'Complex')
 t= met(4.0, -4.5)
 
-print t.r
+print t.__module__
+print dir(t)
