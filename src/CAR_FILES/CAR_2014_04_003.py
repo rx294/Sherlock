@@ -26,7 +26,7 @@ class CAR_2014_04_003():
         self.df = 0
 
     def analyze(df):
-        sysmon_df = df.where(col('log_name') == 'Microsoft-Windows-Sysmon/Operational')
+        sysmon_df = self.df.where(col('log_name') == 'Microsoft-Windows-Sysmon/Operational')
         process_create_events = sysmon_df.where(col('event_id') == 1)
         ps_events = process_create_events.where((col('event_data.Image') == "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"))
         events = ps_events.where((col('event_data.ParentImage') != "C:\\Windows\\explorer.exe"))
