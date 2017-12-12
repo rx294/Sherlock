@@ -33,7 +33,7 @@ LOG_LEVEL = 'ERROR'
 sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)),CAR_DIR))
 
 spark = SparkSession.builder.appName("MITRE_Analytics") \
-                            .master("local[4]") \
+                            .master("spark://rx294@dumbo.hpc.nyu.edu") \
                             .getOrCreate()
 
                             # .master("spark://rx294@dumbo.hpc.nyu.edu") \
