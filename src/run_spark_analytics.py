@@ -79,7 +79,7 @@ if __name__ == '__main__':
 
     # es_df = get_es_df()
     tests = load_tests()
-    start_time = datetime.datetime.now()
+    start_time = datetime.datetime.now() + datetime.timedelta(minutes = -2)
 
     # initizalize time for all test to starttime
     for test in tests:
@@ -88,7 +88,7 @@ if __name__ == '__main__':
     for test in tests:
         test.time = start_time
     for test in itertools.cycle(tests):
-        # es_df = get_es_df()
+        es_df = get_es_df()
         if is_ready(test.time,test.duration):
             print('ready')
             starttime = test.time
