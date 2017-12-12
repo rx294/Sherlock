@@ -91,9 +91,9 @@ if __name__ == '__main__':
         # es_df = get_es_df()
         if is_ready(test.time,test.duration):
             print('ready')
-            # starttime = test.time
-            # time_delta =  datetime.timedelta(minutes = test.duration)
-            # endtime = test.time + time_delta
+            starttime = test.time
+            time_delta =  datetime.timedelta(minutes = test.duration)
+            endtime = test.time + time_delta
 
             # timeslice_df = es_df.where((col('@timestamp') >= starttime) & \
             #                            (col('@timestamp') <= endtime)) 
