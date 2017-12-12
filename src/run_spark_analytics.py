@@ -38,7 +38,7 @@ spark = SparkSession.builder.appName("MITRE_Analytics") \
 
                             # .master("spark://rx294@dumbo.hpc.nyu.edu") \
 
-spark.sparkContext.setLogLevel("LOG_LEVEL")
+spark.sparkContext.setLogLevel(LOG_LEVEL)
 
 def get_es_df():
     resource = ES_WINLOG_INDEX + '/' + ES_WINLOG_TYPE
