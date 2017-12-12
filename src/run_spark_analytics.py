@@ -48,14 +48,19 @@ def conv_dfarray(list):
 
 def write_es_df(events_df):
     resource = ES_ANALYTICS_INDEX + '/' + ES_ANALYTICS_TYPE
-    log_names = events_df.select('log_name').distinct().collect()
-    for i in log_names:
-        events = events_df.where(col('log_name') == i.log_name)
-        events.write.format("org.elasticsearch.spark.sql") \
-                    .option("es.nodes", ES_IP) \
-                    .option("es.port", ES_PORT) \
-                    .mode(WRITE_MODE) \
-                    .save(resource)
+    # log_names = events_df.select('log_name').distinct().collect()
+    # for i in log_names:
+    #     events = events_df.where(col('log_name') == i.log_name)
+    #     events.write.format("org.elasticsearch.spark.sql") \
+    #                 .option("es.nodes", ES_IP) \
+    #                 .option("es.port", ES_PORT) \
+    #                 .mode(WRITE_MODE) \
+    #                 .save(resource)
+    events_df.write.format("org.elasticsearch.spark.sql") \
+                   .option("es.nodes", ES_IP) \
+                   .option("es.port", ES_PORT) \
+                   .mode(WRITE_MODE) \
+                   .save(resource)
 
 def is_ready(time,duration):
     current_time = datetime.datetime.now()
