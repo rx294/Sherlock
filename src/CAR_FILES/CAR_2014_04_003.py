@@ -29,6 +29,7 @@ class CAR_2014_04_003():
         process_create_events = sysmon_df.where(col('event_id') == 1)
         ps_events = process_create_events.where((col('event_data.Image') == "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"))
         events = ps_events.where((col('event_data.ParentImage') != "C:\\Windows\\explorer.exe"))
+        
         return events
 
 

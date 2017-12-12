@@ -7,12 +7,12 @@ from pyspark.sql import SparkSession
 from pyspark.sql import Row
 from pyspark.sql import functions
 from pyspark.sql.functions import *
-from pyspark.sql.functions import array, create_map, structDD
+from pyspark.sql.functions import array, create_map
 from pyspark.sql.functions import lit
 import numpy as np
 from pyspark.sql.types import *
 import itertools
-
+import time
 
 
 CAR_DIR = 'CAR_FILES'
@@ -30,6 +30,7 @@ WRITE_MODE = 'overwrite'
 # es_df=spark.read.format("org.elasticsearch.spark.sql").option("es.nodes","192.168.1.198").load("winlogbeat*/wineventlog").drop('tags')
 # events = events.withColumn("Technique", conv_dfarray(TECHNIQUE)).withColumn("Tactics", conv_dfarray(TACTICS))
 # events.write.format("org.elasticsearch.spark.sql").option("es.nodes","192.168.1.198").mode("overwrite").save('test/wineventlog')
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)),CAR_DIR))
 
 def get_es_df():
     resource = ES_WINLOG_INDEX + '/' + ES_WINLOG_TYPE
@@ -62,9 +63,11 @@ def is_ready(time,duration):
 def load_tests():
     test_list = []
     os.chdir(CAR_DIR)
+    # sys.path.append(os.path.abspath(__file__))
+    # sys.path.append('./'+CAR_DIR)
     for file in glob.glob("*.py"):
         file_name = os.path.split(file)[-1].split('.')[0]
-        mod = import_module(file_name)
+        mod = import_module('CAR_2014_04_003',package='CAR_FILES')
         met = getattr(mod, file_name)()
         test_list.append(met)
     return test_list
@@ -72,24 +75,32 @@ def load_tests():
 
 
 if __name__ == '__main__':
-    print "hello"
+    print ("hello")
 
     # es_df = get_es_df()
-    # tests = load_tests()
+    tests = load_tests()
     start_time = datetime.datetime.now()
 
-    # initizalize time for all test to startime
+    # initizalize time for all test to starttime
     for test in tests:
         test.time = start_time
 
-    # for test in tests:
-    #     tactics = test.tactics
-    #     technique = test.tactics
-    #     duration = test.duration
+    for test in tests:
+        test.time = start_time
+    for test in itertools.cycle(tests):
+        es_df = get_es_df()
+        if is_ready(test.time,test.duration):
+            print('ready')
+            starttime = test.time
+            time_delta =  datetime.timedelta(minutes = test.duration)
+            endtime = test.time + time_delta
 
+            timeslice_df = es_df.where((col*=('@timestamp') >= starttime) & \
+                                       (col*=('@timestamp') <= endtime) 
 
-
-
+            events = test.analyze(timeslice_df)
+            write_es_df(events)
+            test.time = endtime
 
 
 
