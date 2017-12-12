@@ -18,7 +18,7 @@
 
 TECHNIQUES = ['Command-Line Interface']
 TACTICS = ['Execution']
-DURATION_MINS = 60*6
+DURATION_MINS = 1
 
 from pyspark.sql.functions import *
 

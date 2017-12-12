@@ -27,9 +27,7 @@ ES_ANALYTICS_INDEX = "test5"
 ES_ANALYTICS_TYPE = "wineventlog"
 WRITE_MODE = 'append'
 
-# es_df=spark.read.format("org.elasticsearch.spark.sql").option("es.nodes","192.168.1.198").load("winlogbeat*/wineventlog").drop('tags')
-# events = events.withColumn("Technique", conv_dfarray(TECHNIQUE)).withColumn("Tactics", conv_dfarray(TACTICS))
-# events.write.format("org.elasticsearch.spark.sql").option("es.nodes","192.168.1.198").mode("overwrite").save('test/wineventlog')
+
 sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)),CAR_DIR))
 
 spark = SparkSession.builder.appName("MITRE_Analytics").getOrCreate()
@@ -67,8 +65,8 @@ def is_ready(time,duration):
     time_delta =  datetime.timedelta(minutes = duration)
     return (time + time_delta) < current_time
 
-def load_tests():
-    test_list = []
+def load_cars():
+    car_list = []
     os.chdir(CAR_DIR)
     # sys.path.append(os.path.abspath(__file__))
     # sys.path.append('./'+CAR_DIR)
@@ -76,42 +74,39 @@ def load_tests():
         file_name = os.path.split(file)[-1].split('.')[0]
         mod = import_module(file_name)
         met = getattr(mod, file_name)()
-        test_list.append(met)
-    return test_list
+        car_list.append(met)
+    return car_list
 
 
 
 if __name__ == '__main__':
     print ("hello")
 
-    # es_df = get_es_df()
-    tests = load_tests()
+    cars = load_cars()
     start_time = datetime.datetime.now() + datetime.timedelta(days = -10)
     # endtime = datetime.datetime.now() + datetime.timedelta(days = -1)
 
-    # initizalize time for all test to starttime
-    for test in tests:
-        test.time = start_time
+    # initizalize time for all cars to starttime
+    for car in cars:
+        car.time = start_time
 
-    for test in tests:
-        test.time = start_time
-    for test in itertools.cycle(tests):
+
+    for car in itertools.cycle(cars):
         es_df = get_es_df()
-        if is_ready(test.time,test.duration):
+        if is_ready(car.time,car.duration):
             print('ready')
-            starttime = test.time
-            time_delta =  datetime.timedelta(minutes = test.duration)
-            endtime = test.time + time_delta
+            starttime = car.time
+            time_delta =  datetime.timedelta(minutes = car.duration)
+            endtime = car.time + time_delta
 
             timeslice_df = es_df.where((col('@timestamp') >= starttime) & \
                                        (col('@timestamp') <= endtime)) 
-            test.df = timeslice_df
-            events = test.analyze()
-            events = events.withColumn("Technique", conv_dfarray(test.techniques))
-            events = events.withColumn("Tactics", conv_dfarray(test.tactics))
+            car.df = timeslice_df
+            events = car.analyze()
+            events = events.withColumn("Technique", conv_dfarray(car.techniques))
+            events = events.withColumn("Tactics", conv_dfarray(car.tactics))
             write_es_df(events)
-            test.time = endtime
-        # time.sleep(30)
-
-# sysmon_df.where((col('@timestamp') >= starttime) & (col('@timestamp') <= endtime)).show()
+            car.time = endtime
+        else:
+            time.sleep(30)
 
