@@ -27,6 +27,7 @@ ES_ANALYTICS_INDEX = "test5"
 ES_ANALYTICS_TYPE = "wineventlog"
 WRITE_MODE = 'append'
 
+WAIT_SECONDS = 15
 
 sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)),CAR_DIR))
 
@@ -80,7 +81,7 @@ def load_cars():
 
 
 if __name__ == '__main__':
-    print ("hello")
+    print ("Welcome to APT Detection Framework")
 
     cars = load_cars()
     start_time = datetime.datetime.now() + datetime.timedelta(days = -10)
@@ -109,5 +110,5 @@ if __name__ == '__main__':
             car.time = endtime
         else:
             print('Waiting to be ready...')
-            time.sleep(30)
+            time.sleep(WAIT_SECONDS)
 

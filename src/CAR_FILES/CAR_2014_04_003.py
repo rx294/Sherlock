@@ -15,7 +15,7 @@
 
 TECHNIQUES = ['PowerShell','Scripting']
 TACTICS = ['Defense Evasion', 'Execution']
-DURATION_MINS = 30
+DURATION_MINS = 60*24
 
 from pyspark.sql.functions import *
 
