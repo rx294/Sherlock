@@ -1,0 +1,65 @@
+Running: CAR_2013_02_003
+Running: CAR_2014_04_003
+Running: CAR_2013_02_003
+Running: CAR_2014_04_003
+17/12/12 18:33:10 ERROR scheduler.TaskSchedulerImpl: Lost executor driver on localhost: Executor heartbeat timed out after 267087 ms
+17/12/12 18:33:10 ERROR scheduler.TaskSetManager: Task 194 in stage 395.0 failed 1 times; aborting job
+17/12/12 18:33:10 ERROR scheduler.TaskSchedulerImpl: Ignoring update with state RUNNING for TID 47513 because its task set is gone (this is likely the result of receiving duplicate task finished status updates) or its executor has been marked as failed.
+17/12/12 18:33:10 ERROR scheduler.TaskSchedulerImpl: Ignoring update with state FINISHED for TID 47513 because its task set is gone (this is likely the result of receiving duplicate task finished status updates) or its executor has been marked as failed.
+17/12/12 18:33:10 ERROR scheduler.TaskSchedulerImpl: Ignoring update with state RUNNING for TID 47514 because its task set is gone (this is likely the result of receiving duplicate task finished status updates) or its executor has been marked as failed.
+17/12/12 18:33:10 ERROR scheduler.TaskSchedulerImpl: Ignoring update with state FINISHED for TID 47514 because its task set is gone (this is likely the result of receiving duplicate task finished status updates) or its executor has been marked as failed.
+17/12/12 18:33:10 ERROR scheduler.TaskSchedulerImpl: Ignoring update with state FINISHED for TID 47509 because its task set is gone (this is likely the result of receiving duplicate task finished status updates) or its executor has been marked as failed.
+17/12/12 18:33:10 ERROR scheduler.TaskSchedulerImpl: Ignoring update with state FINISHED for TID 47512 because its task set is gone (this is likely the result of receiving duplicate task finished status updates) or its executor has been marked as failed.
+Traceback (most recent call last):
+  File "/usr/zeppelin/Advanced-Persistent-Threat-Detection/src/run_spark_analytics.py", line 130, in <module>
+    write_es_df(events)
+  File "/usr/zeppelin/Advanced-Persistent-Threat-Detection/src/run_spark_analytics.py", line 57, in write_es_df
+    log_names = events_df.select('log_name').distinct().collect()
+  File "/usr/spark-2.2.0/python/lib/pyspark.zip/pyspark/sql/dataframe.py", line 438, in collect
+  File "/usr/spark-2.2.0/python/lib/py4j-0.10.4-src.zip/py4j/java_gateway.py", line 1133, in __call__
+  File "/usr/spark-2.2.0/python/lib/pyspark.zip/pyspark/sql/utils.py", line 63, in deco
+  File "/usr/spark-2.2.0/python/lib/py4j-0.10.4-src.zip/py4j/protocol.py", line 319, in get_return_value
+py4j.protocol.Py4JJavaError: An error occurred while calling o8545.collectToPython.
+: org.apache.spark.SparkException: Job aborted due to stage failure: Task 194 in stage 395.0 failed 1 times, most recent failure: Lost task 194.0 in stage 395.0 (TID 47514, localhost, executor driver): ExecutorLostFailure (executor driver exited caused by one of the running tasks) Reason: Executor heartbeat timed out after 267087 ms
+Driver stacktrace:
+    at org.apache.spark.scheduler.DAGScheduler.org$apache$spark$scheduler$DAGScheduler$$failJobAndIndependentStages(DAGScheduler.scala:1499)
+    at org.apache.spark.scheduler.DAGScheduler$$anonfun$abortStage$1.apply(DAGScheduler.scala:1487)
+    at org.apache.spark.scheduler.DAGScheduler$$anonfun$abortStage$1.apply(DAGScheduler.scala:1486)
+    at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59)
+    at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:48)
+    at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:1486)
+    at org.apache.spark.scheduler.DAGScheduler$$anonfun$handleTaskSetFailed$1.apply(DAGScheduler.scala:814)
+    at org.apache.spark.scheduler.DAGScheduler$$anonfun$handleTaskSetFailed$1.apply(DAGScheduler.scala:814)
+    at scala.Option.foreach(Option.scala:257)
+    at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:814)
+    at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:1714)
+    at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:1669)
+    at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:1658)
+    at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:48)
+    at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:630)
+    at org.apache.spark.SparkContext.runJob(SparkContext.scala:2022)
+    at org.apache.spark.SparkContext.runJob(SparkContext.scala:2043)
+    at org.apache.spark.SparkContext.runJob(SparkContext.scala:2062)
+    at org.apache.spark.SparkContext.runJob(SparkContext.scala:2087)
+    at org.apache.spark.rdd.RDD$$anonfun$collect$1.apply(RDD.scala:936)
+    at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+    at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+    at org.apache.spark.rdd.RDD.withScope(RDD.scala:362)
+    at org.apache.spark.rdd.RDD.collect(RDD.scala:935)
+    at org.apache.spark.sql.execution.SparkPlan.executeCollect(SparkPlan.scala:278)
+    at org.apache.spark.sql.Dataset$$anonfun$collectToPython$1.apply$mcI$sp(Dataset.scala:2803)
+    at org.apache.spark.sql.Dataset$$anonfun$collectToPython$1.apply(Dataset.scala:2800)
+    at org.apache.spark.sql.Dataset$$anonfun$collectToPython$1.apply(Dataset.scala:2800)
+    at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:65)
+    at org.apache.spark.sql.Dataset.withNewExecutionId(Dataset.scala:2823)
+    at org.apache.spark.sql.Dataset.collectToPython(Dataset.scala:2800)
+    at sun.reflect.GeneratedMethodAccessor53.invoke(Unknown Source)
+    at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+    at java.lang.reflect.Method.invoke(Method.java:498)
+    at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+    at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+    at py4j.Gateway.invoke(Gateway.java:280)
+    at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+    at py4j.commands.CallCommand.execute(CallCommand.java:79)
+    at py4j.GatewayConnection.run(GatewayConnection.java:214)
+    at java.lang.Thread.run(Thread.java:748)
