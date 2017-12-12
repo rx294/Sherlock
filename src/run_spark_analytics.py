@@ -23,9 +23,9 @@ ES_PORT = '9200'
 ES_WINLOG_INDEX = "winlogbeat*"
 ES_WINLOG_TYPE = "wineventlog"
 
-ES_ANALYTICS_INDEX = "analytics"
+ES_ANALYTICS_INDEX = "test5"
 ES_ANALYTICS_TYPE = "wineventlog"
-WRITE_MODE = 'overwrite'
+WRITE_MODE = 'append'
 
 # es_df=spark.read.format("org.elasticsearch.spark.sql").option("es.nodes","192.168.1.198").load("winlogbeat*/wineventlog").drop('tags')
 # events = events.withColumn("Technique", conv_dfarray(TECHNIQUE)).withColumn("Tactics", conv_dfarray(TACTICS))
