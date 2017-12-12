@@ -81,7 +81,8 @@ if __name__ == '__main__':
 
     # es_df = get_es_df()
     tests = load_tests()
-    start_time = datetime.datetime.now() + datetime.timedelta(minutes = -2)
+    start_time = datetime.datetime.now() + datetime.timedelta(days = -10)
+    # endtime = datetime.datetime.now() + datetime.timedelta(days = -1)
 
     # initizalize time for all test to starttime
     for test in tests:
@@ -104,5 +105,5 @@ if __name__ == '__main__':
             write_es_df(events)
             test.time = endtime
 
-
+# sysmon_df.where((col('@timestamp') >= starttime) & (col('@timestamp') <= endtime)).show()
 
