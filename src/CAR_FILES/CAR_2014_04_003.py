@@ -17,6 +17,8 @@ TECHNIQUES = ['PowerShell','Scripting']
 TACTICS = ['Defense Evasion', 'Execution']
 DURATION_MINS = 60*6
 
+from pyspark.sql.functions import *
+
 class CAR_2014_04_003():
     def __init__(self):
         self.time = 0
