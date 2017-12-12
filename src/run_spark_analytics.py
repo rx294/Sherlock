@@ -28,11 +28,17 @@ ES_ANALYTICS_TYPE = "wineventlog"
 WRITE_MODE = 'append'
 
 WAIT_SECONDS = 15
+LOG_LEVEL = 'ERROR'
 
 sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)),CAR_DIR))
 
-spark = SparkSession.builder.appName("MITRE_Analytics").getOrCreate()
-spark.sparkContext.setLogLevel("ERROR")
+spark = SparkSession.builder.appName("MITRE_Analytics") \
+                            .master("local[4]") \
+                            # .master("spark://rx294@dumbo.hpc.nyu.edu") \
+                            .master("local") \
+                            .getOrCreate()
+
+spark.sparkContext.setLogLevel("LOG_LEVEL")
 
 def get_es_df():
     resource = ES_WINLOG_INDEX + '/' + ES_WINLOG_TYPE
