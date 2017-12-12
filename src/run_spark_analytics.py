@@ -95,8 +95,8 @@ if __name__ == '__main__':
             time_delta =  datetime.timedelta(minutes = test.duration)
             endtime = test.time + time_delta
 
-            timeslice_df = es_df.where((col*=('@timestamp') >= starttime) & \
-                                       (col*=('@timestamp') <= endtime)) 
+            timeslice_df = es_df.where((col('@timestamp') >= starttime) & \
+                                       (col('@timestamp') <= endtime)) 
 
             events = test.analyze(timeslice_df)
             write_es_df(events)
