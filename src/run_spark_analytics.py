@@ -74,7 +74,7 @@ def load_tests():
     # sys.path.append('./'+CAR_DIR)
     for file in glob.glob("*.py"):
         file_name = os.path.split(file)[-1].split('.')[0]
-        mod = import_module('CAR_2014_04_003')
+        mod = import_module(file_name)
         met = getattr(mod, file_name)()
         test_list.append(met)
     return test_list
@@ -96,20 +96,20 @@ if __name__ == '__main__':
     for test in tests:
         test.time = start_time
     for test in itertools.cycle(tests):
-        es_df = get_es_df()
+        # es_df = get_es_df()
         if is_ready(test.time,test.duration):
             print('ready')
             starttime = test.time
             time_delta =  datetime.timedelta(minutes = test.duration)
             endtime = test.time + time_delta
 
-            timeslice_df = es_df.where((col('@timestamp') >= starttime) & \
-                                       (col('@timestamp') <= endtime)) 
-            test.df = timeslice_df
-            events = test.analyze()
-            events = events.withColumn("Technique", conv_dfarray(test.techniques))
-            events = events.withColumn("Tactics", conv_dfarray(test.tactics))
-            write_es_df(events)
+            # timeslice_df = es_df.where((col('@timestamp') >= starttime) & \
+            #                            (col('@timestamp') <= endtime)) 
+            # test.df = timeslice_df
+            # events = test.analyze()
+            # events = events.withColumn("Technique", conv_dfarray(test.techniques))
+            # events = events.withColumn("Tactics", conv_dfarray(test.tactics))
+            # write_es_df(events)
             test.time = endtime
         # time.sleep(30)
 
