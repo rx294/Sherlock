@@ -32,7 +32,7 @@ WAIT_SECONDS = 15
 sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)),CAR_DIR))
 
 spark = SparkSession.builder.appName("MITRE_Analytics").getOrCreate()
-spark.setLogLevel("WARN")
+spark.sparkContext.setLogLevel("ERROR")
 
 def get_es_df():
     resource = ES_WINLOG_INDEX + '/' + ES_WINLOG_TYPE
