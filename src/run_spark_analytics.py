@@ -67,7 +67,7 @@ def load_tests():
     # sys.path.append('./'+CAR_DIR)
     for file in glob.glob("*.py"):
         file_name = os.path.split(file)[-1].split('.')[0]
-        mod = import_module('CAR_2014_04_003',package='CAR_FILES')
+        mod = import_module('CAR_2014_04_003')
         met = getattr(mod, file_name)()
         test_list.append(met)
     return test_list
