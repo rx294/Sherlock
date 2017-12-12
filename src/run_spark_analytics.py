@@ -13,7 +13,7 @@ import numpy as np
 from pyspark.sql.types import *
 import itertools
 import time
-
+sys.path.append('/usr/zeppelin/Advanced-Persistent-Threat-Detection/src/CAR_FILES')
 
 CAR_DIR = 'CAR_FILES'
 
