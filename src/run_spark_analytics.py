@@ -100,8 +100,8 @@ if __name__ == '__main__':
 
             timeslice_df = es_df.where((col('@timestamp') >= starttime) & \
                                        (col('@timestamp') <= endtime)) 
-
-            events = test.analyze(timeslice_df)
+            test.df = timeslice_df
+            events = test.analyze()
             write_es_df(events)
             test.time = endtime
 
