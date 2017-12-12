@@ -32,6 +32,7 @@ WAIT_SECONDS = 15
 sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)),CAR_DIR))
 
 spark = SparkSession.builder.appName("MITRE_Analytics").getOrCreate()
+spark.setLogLevel("WARN")
 
 def get_es_df():
     resource = ES_WINLOG_INDEX + '/' + ES_WINLOG_TYPE
@@ -82,7 +83,21 @@ def load_cars():
 
 if __name__ == '__main__':
     print ("Welcome to APT Detection Framework")
-
+    print('''
+     __      __       .__                                  __                                                                                                      
+    /  \    /  \ ____ |  |   ____  ____   _____   ____   _/  |_  ____                                                                                              
+    \   \/\/   // __ \|  | _/ ___\/  _ \ /     \_/ __ \  \   __\/  _ \                                                                                             
+     \        /\  ___/|  |_\  \__(  <_> )  Y Y  \  ___/   |  | (  <_> )                                                                                            
+      \__/\  /  \___  >____/\___  >____/|__|_|  /\___  >  |__|  \____/                                                                                             
+           \/       \/          \/            \/     \/                                                                                                            
+       _____ _____________________ ________          __                 __  .__                ___________                                                __       
+      /  _  \\______   \__    ___/ \______ \   _____/  |_  ____   _____/  |_|__| ____   ____   \_   _____/___________    _____   ______  _  _____________|  | __   
+     /  /_\  \|     ___/ |    |     |    |  \_/ __ \   __\/ __ \_/ ___\   __\  |/  _ \ /    \   |    __) \_  __ \__  \  /     \_/ __ \ \/ \/ /  _ \_  __ \  |/ /   
+    /    |    \    |     |    |     |    `   \  ___/|  | \  ___/\  \___|  | |  (  <_> )   |  \  |     \   |  | \// __ \|  Y Y  \  ___/\     (  <_> )  | \/    <    
+    \____|__  /____|     |____|    /_______  /\___  >__|  \___  >\___  >__| |__|\____/|___|  /  \___  /   |__|  (____  /__|_|  /\___  >\/\_/ \____/|__|  |__|_ \   
+            \/                             \/     \/          \/     \/                    \/       \/               \/      \/     \/                        \/.  
+                                                                                                                                                                   
+    ''')
     cars = load_cars()
     start_time = datetime.datetime.now() + datetime.timedelta(days = -10)
     # endtime = datetime.datetime.now() + datetime.timedelta(days = 1)
