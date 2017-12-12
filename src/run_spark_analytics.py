@@ -88,18 +88,18 @@ if __name__ == '__main__':
     for test in tests:
         test.time = start_time
     for test in itertools.cycle(tests):
-        es_df = get_es_df()
+        # es_df = get_es_df()
         if is_ready(test.time,test.duration):
             print('ready')
-            starttime = test.time
-            time_delta =  datetime.timedelta(minutes = test.duration)
-            endtime = test.time + time_delta
+            # starttime = test.time
+            # time_delta =  datetime.timedelta(minutes = test.duration)
+            # endtime = test.time + time_delta
 
-            timeslice_df = es_df.where((col('@timestamp') >= starttime) & \
-                                       (col('@timestamp') <= endtime)) 
+            # timeslice_df = es_df.where((col('@timestamp') >= starttime) & \
+            #                            (col('@timestamp') <= endtime)) 
 
-            events = test.analyze(timeslice_df)
-            write_es_df(events)
+            # events = test.analyze(timeslice_df)
+            # write_es_df(events)
             test.time = endtime
 
 
