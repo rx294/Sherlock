@@ -96,46 +96,45 @@ def load_cars():
 if __name__ == '__main__':
     print ("Welcome to APT Detection Framework")
     print('''
-     __      __       .__                                  __                                                                                                      
-    /  \    /  \ ____ |  |   ____  ____   _____   ____   _/  |_  ____                                                                                              
-    \   \/\/   // __ \|  | _/ ___\/  _ \ /     \_/ __ \  \   __\/  _ \                                                                                             
-     \        /\  ___/|  |_\  \__(  <_> )  Y Y  \  ___/   |  | (  <_> )                                                                                            
-      \__/\  /  \___  >____/\___  >____/|__|_|  /\___  >  |__|  \____/                                                                                             
-           \/       \/          \/            \/     \/                                                                                                            
-       _____ _____________________ ________          __                 __  .__                ___________                                                __       
-      /  _  \\______   \__    ___/ \______ \   _____/  |_  ____   _____/  |_|__| ____   ____   \_   _____/___________    _____   ______  _  _____________|  | __   
-     /  /_\  \|     ___/ |    |     |    |  \_/ __ \   __\/ __ \_/ ___\   __\  |/  _ \ /    \   |    __) \_  __ \__  \  /     \_/ __ \ \/ \/ /  _ \_  __ \  |/ /   
-    /    |    \    |     |    |     |    `   \  ___/|  | \  ___/\  \___|  | |  (  <_> )   |  \  |     \   |  | \// __ \|  Y Y  \  ___/\     (  <_> )  | \/    <    
-    \____|__  /____|     |____|    /_______  /\___  >__|  \___  >\___  >__| |__|\____/|___|  /  \___  /   |__|  (____  /__|_|  /\___  >\/\_/ \____/|__|  |__|_ \   
-            \/                             \/     \/          \/     \/                    \/       \/               \/      \/     \/                        \/.  
-                                                                                                                                                                   
+     __      __       .__                                   __                                                                                                      
+    /  \    /  \ ____ |  |   ____  ____   _____   ____    _/  |_  ____                                                                                              
+    \   \/\/   // __ \|  | _/ ___\/  _ \ /     \_/ __ \   \   __\/  _ \                                                                                             
+     \        /\  ___/|  |_\  \__(  <_> )  Y Y  \  ___/    |  | (  <_> )                                                                                            
+      \__/\  /  \___  >____/\___  >____/|__|_|  /\___  >   |__|  \____/                                                                                             
+           \/       \/          \/            \/     \/                                                                                                             
+       _____ _____________________  ________          __                 __  .__                ___________                                                __       
+      /  _  \\______   \__    ___/  \______ \   _____/  |_  ____   _____/  |_|__| ____   ____   \_   _____/___________    _____   ______  _  _____________|  | __   
+     /  /_\  \|     ___/ |    |      |    |  \_/ __ \   __\/ __ \_/ ___\   __\  |/  _ \ /    \   |    __) \_  __ \__  \  /     \_/ __ \ \/ \/ /  _ \_  __ \  |/ /   
+    /    |    \    |     |    |      |    `   \  ___/|  | \  ___/\  \___|  | |  (  <_> )   |  \  |     \   |  | \// __ \|  Y Y  \  ___/\     (  <_> )  | \/    <    
+    \____|__  /____|     |____|     /_______  /\___  >__|  \___  >\___  >__| |__|\____/|___|  /  \___  /   |__|  (____  /__|_|  /\___  >\/\_/ \____/|__|  |__|_ \   
+            \/                              \/     \/          \/     \/                    \/       \/               \/      \/     \/                        \/.  
+                                                                                                                                                                    
     ''')
     cars = load_cars()
     start_time = datetime.datetime.now() + datetime.timedelta(days = -10)
-    # endtime = datetime.datetime.now() + datetime.timedelta(days = 1)
 
     # initizalize time for all cars to starttime
     for car in cars:
         car.time = start_time
 
-
-    for car in itertools.cycle(cars):
+    while True:
         es_df = get_es_df()
-        if is_ready(car.time,car.duration):
-            print('Running: '+ car.__module__)
-            starttime = car.time
-            time_delta =  datetime.timedelta(minutes = car.duration)
-            endtime = car.time + time_delta
+        for car in cars:
+            if is_ready(car.time,car.duration):
+                print('Running: '+ car.__module__)
+                starttime = car.time
+                time_delta =  datetime.timedelta(minutes = car.duration)
+                endtime = car.time + time_delta
 
-            timeslice_df = es_df.where((col('@timestamp') >= starttime) & \
-                                       (col('@timestamp') <= endtime)) 
-            car.df = timeslice_df
-            events = car.analyze()
-            events = events.withColumn("Technique", conv_dfarray(car.techniques))
-            events = events.withColumn("Tactics", conv_dfarray(car.tactics))
-            write_es_df(events)
-            car.time = endtime
-        else:
-            print('Waiting to be ready...')
-            time.sleep(WAIT_SECONDS)
+                timeslice_df = es_df.where((col('@timestamp') >= starttime) & \
+                                           (col('@timestamp') <= endtime)) 
+                car.df = timeslice_df
+                events = car.analyze()
+                events = events.withColumn("Technique", conv_dfarray(car.techniques))
+                events = events.withColumn("Tactics", conv_dfarray(car.tactics))
+                write_es_df(events)
+                car.time = endtime
+            else:
+                print('Waiting to be ready...')
+                time.sleep(WAIT_SECONDS)
 

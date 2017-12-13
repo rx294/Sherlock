@@ -67,7 +67,7 @@ class CAR_2016_03_001():
 
         info_events = process_create_events.where(col('event_data.Image').rlike(regexes))
 
-        sc_events = process_create_events.where(col('event_data.Image').rlike('sc') &\
+        sc_events = process_create_events.where(col('event_data.Image').rlike('sc.exe') &\
                                                 col('event_data.CommandLine').rlike('(?: query| qc)'))
         events = info_events.union(sc_events)
         return events
