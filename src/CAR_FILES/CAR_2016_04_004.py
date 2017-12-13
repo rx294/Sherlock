@@ -28,7 +28,7 @@ class CAR_2016_04_004():
 
     def analyze(self):
         security_df = self.df.where(col('log_name') == 'Security')
-        events = security_df.where(col('event_id') == 4624)
-        events = security_df.where(col('event_data.TargetUserName') != "ANONYMOUS LOGON" & \
-                                   col('event_data.AuthenticationPackageName') == "NTLM")
+        events = security_df.where(col('event_id') == 4624) \
+                            .where(col('event_data.TargetUserName') != "ANONYMOUS LOGON") \
+                            .where(col('event_data.AuthenticationPackageName') == "NTLM")
         return events

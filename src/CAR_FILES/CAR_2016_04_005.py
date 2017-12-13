@@ -29,8 +29,8 @@ class CAR_2016_04_005():
 
     def analyze(self):
         security_df = self.df.where(col('log_name') == 'Security')
-        events = security_df.where(col('event_id') == 4624)
-        events = security_df.where(col('event_data.LogonType') != 10 & \
-                                   col('level') == "Information" & \
-                                   col('event_data.AuthenticationPackageName') == "Negotiate")
+        events = security_df.where(col('event_id') == 4624) \
+                            .where(col('event_data.LogonType') != 10) \
+                            .where(col('level') == "Information") \
+                            .where(col('event_data.AuthenticationPackageName') == "Negotiate")
         return events
