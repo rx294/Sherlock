@@ -14,7 +14,7 @@
 # rar_argument = filter processes where (command_line == "* a *")
 # output rar_argument
 
-TECHNIQUE = ['Masquerading']
+TECHNIQUES = ['Masquerading']
 TACTICS = ['Defense Evasion']
 DURATION_MINS = 30
 

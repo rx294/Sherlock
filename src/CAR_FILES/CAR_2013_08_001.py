@@ -17,7 +17,7 @@
 # output schtasks
 
 
-TECHNIQUE = ['Scheduled Task']
+TECHNIQUES = ['Scheduled Task']
 TACTICS = ['Execution', 'Persistence', 'Privilege Escalation']
 DURATION_MINS = 30
 

@@ -18,7 +18,7 @@
 # output rdp
 
 
-TECHNIQUE = ['Remote Desktop Protocol']
+TECHNIQUES = ['Remote Desktop Protocol']
 TACTICS = ['Lateral Movement']
 DURATION_MINS = 30
 

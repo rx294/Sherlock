@@ -1,7 +1,7 @@
 # CAR_2013_05_003: SMB Write Request
 
 
-TECHNIQUE = ['Remote File Copy','Windows Admin Shares','Legitimate Credentials']
+TECHNIQUES = ['Remote File Copy','Windows Admin Shares','Legitimate Credentials']
 TACTICS = ['Command and Control', 'Lateral Movement','Defense Evasion', 'Persistence', 'Privilege Escalation']
 DURATION_MINS = 30
 

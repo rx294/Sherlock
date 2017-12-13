@@ -12,7 +12,7 @@
 # that do this behavior as well, but likely from a different process tree. These
 # background scripts must be learned so they can be tuned out accordingly.
 
-TECHNIQUE = ['Query Registry','Modify Registry','Registry Run Keys / Start Folder','Service Registry Permissions Weakness']
+TECHNIQUES = ['Query Registry','Modify Registry','Registry Run Keys / Start Folder','Service Registry Permissions Weakness']
 TACTICS = ['Discovery','Defense Evasion','Persistence', 'Privilege Escalation']
 DURATION_MINS = 30
 

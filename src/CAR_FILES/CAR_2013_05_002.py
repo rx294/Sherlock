@@ -1,6 +1,6 @@
 # CAR_2013_05_002: Suspicious Run Locations
 
-TECHNIQUE = ['Masquerading']
+TECHNIQUES = ['Masquerading']
 TACTICS = ['Defense Evasion']
 DURATION_MINS = 30
 

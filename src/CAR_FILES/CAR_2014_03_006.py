@@ -17,7 +17,7 @@
 # rundll32 = filter process where (exe == "rundll32.exe")
 # output rundll32
 
-TECHNIQUE = ['Rundll32']
+TECHNIQUES = ['Rundll32']
 TACTICS = ['Defense Evasion', 'Execution']
 DURATION_MINS = 30
 

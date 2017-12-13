@@ -36,7 +36,7 @@
 # )
 # output rpc
 
-TECHNIQUE = ['Legitimate Credentials','Remote Services']
+TECHNIQUES = ['Legitimate Credentials','Remote Services']
 TACTICS = ['Defense Evasion', 'Persistence', 'Privilege Escalation','Lateral Movement']
 DURATION_MINS = 30
 

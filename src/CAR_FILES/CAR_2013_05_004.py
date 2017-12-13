@@ -20,7 +20,7 @@
 # at = filter process where (exe == "at.exe")
 # output at
 
-TECHNIQUE = ['Scheduled Task']
+TECHNIQUES = ['Scheduled Task']
 TACTICS = ['Execution', 'Persistence', 'Privilege Escalation']
 DURATION_MINS = 30
 
