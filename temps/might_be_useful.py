@@ -1,1 +1,2 @@
 path.rsplit('\\')
+docker run --hostname=quickstart.cloudera --privileged=true -t -i -d -p 8888:8888 -p 8000:80 -p 4040:4040 -v /Users/rxman/Dropbox/NYU/Fall2017/BigData:/home/mac -P cloudera/quickstart /usr/bin/docker-quickstart

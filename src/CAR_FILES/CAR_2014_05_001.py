@@ -41,6 +41,9 @@ TACTICS = ['Defense Evasion', 'Persistence', 'Privilege Escalation','Lateral Mov
 DURATION_MINS = 30
 
 from pyspark.sql.functions import *
+from pyspark.sql.types import *
+import datetime
+from datetime import timedelta
 
 class CAR_2014_05_001():
     def __init__(self):
@@ -65,6 +68,9 @@ class CAR_2014_05_001():
         rpc =  rpc_mapper.join(rpc_endpoint, (rpc_mapper.event_data.SourceIp      == rpc_endpoint.src_ip) & \
                                              (rpc_mapper.event_data.DestinationIp == rpc_endpoint.dest_ip))
 
+        timeframe =  udf (lambda time: time + datetime.timedelta(minutes = 2), DateType())
+        rpc = rpc.where(col('@timestamp') < col('time')) \
+                 .where(col('time') < timeframe(col('@timestamp')))
         events = rpc.drop('time','src_ip','dest_ip')
         return events
 

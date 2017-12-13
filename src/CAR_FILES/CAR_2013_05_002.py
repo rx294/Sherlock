@@ -1,4 +1,27 @@
 # CAR_2013_05_002: Suspicious Run Locations
+# In Windows, files should never execute out of certain directory locations. Any
+# of these locations may exist for a variety of reasons, and executables may be
+# present in the directory but should not execute. As a result, some defenders
+# make the mistake of ignoring these directories and assuming that a process will
+# never run from one. There are known TTPs that have taken advantage of this fact
+# to go undetected. This fact should inform defenders to monitor these
+# directories more closely, knowing that they should never contain running
+# processes.
+
+# Pseudocode
+
+# The RECYCLER and SystemVolumeInformation directories will be present on every
+# drive. Replace %systemroot% and %windir% with the actual paths as configured by
+# the endpoints.
+
+# processes = search Process:Create
+# suspicious_locations = filter process where (
+# image_path == "*:\RECYCLER\*" or
+# image_path == "*:\SystemVolumeInformation\*" or
+# image_path == "%windir%\Tasks\*" or 
+# image_path == "%systemroot%\debug\*"
+# )
+# output suspicious_locations
 
 TECHNIQUES = ['Masquerading']
 TACTICS = ['Defense Evasion']
@@ -16,41 +39,15 @@ class CAR_2013_05_002():
         self.techniques = TECHNIQUES
         self.df = 0
 
-        def is_suspicious(image_path):
-            ''' List of suspicious commands '''
-            suspicious_locations = [
-            'C:\\\\RECYCLER\\\\.*',
-            'C:\\\\SystemVolumeInformation\\\\.*',
-            'C:\\\\Windows\\\\Tasks\\\\.*',
-            'C:\\\\Windows\\\\debug\\\\.*']
-            try:
-                regexes = '(?:%s)' % '|'.join(suspicious_locations)
-                if re.match(regexes, image_path, re.IGNORECASE):
-                    return True
-                return False
-            except:
-                return False
-
     def analyze(self):
-
-        def is_suspicious(image_path):
-            ''' List of suspicious commands '''
-            suspicious_locations = [
-            'C:\\\\RECYCLER\\\\.*',
-            'C:\\\\SystemVolumeInformation\\\\.*',
-            'C:\\\\Windows\\\\Tasks\\\\.*',
-            'C:\\\\Windows\\\\debug\\\\.*']
-            try:
-                regexes = '(?:%s)' % '|'.join(suspicious_locations)
-                if re.match(regexes, image_path, re.IGNORECASE):
-                    return True
-                return False
-            except:
-                return False
-
-        is_suspicious_udf = udf(is_suspicious, BooleanType())
-
+        suspicious_locations = [
+        'C:\\\\RECYCLER\\\\.*',
+        'C:\\\\SystemVolumeInformation\\\\.*',
+        'C:\\\\Windows\\\\Tasks\\\\.*',
+        'C:\\\\Windows\\\\debug\\\\.*'
+        ]
+        regexes = '(?:%s)' % '|'.join(suspicious_locations)
         sysmon_df = self.df.where(col('log_name') == 'Microsoft-Windows-Sysmon/Operational')
         process_create_events = sysmon_df.where(col('event_id') == 1)
-        events = process_create_events.where(is_suspicious_udf(col('event_data.Image')))
+        events = process_create_events.where(col('event_data.Image').rlike(regexes))
         return events

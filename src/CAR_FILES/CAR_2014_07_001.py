@@ -39,29 +39,13 @@ class CAR_2014_07_001():
         self.df = 0
 
     def analyze(self):
-
-        def regex_filter(x,regex):
-            regex = ['.* a .*']
-            if x and x.strip():
-                if re.match(regex, x, re.IGNORECASE):
-                    return True
-            return False
-
-        regex_udf = udf(regex_filter, BooleanType())
         sysmon_df = self.df.where(col('log_name') == 'Microsoft-Windows-Sysmon/Operational')
         process_create_events = sysmon_df.where(col('event_id') == 1)
 
-        unquoted_services = process_create_events.where((not regex_udf(col('event_data.CommandLine'),'^\\".*')) &\
-                                                        regex_udf(col('event_data.CommandLine'),'.* .*'))
+        unquoted_services = process_create_events.where((col('event_data.CommandLine').rlike('^\\".*') == False) &\
+                                                         (col('event_data.CommandLine').rlike('.* .*')))
 
-        intercepted_service = unquoted_services.where((not regex_udf(col('event_data.Image'),'.* .*')) &\
-                                                      (not regex_udf(col('event_data.Image'),'exe')))
+        intercepted_service = process_create_events.where((col('event_data.Image').rlike('.* .*') == False) &\
+                                                         (col('event_data.Image').rlike('exe') == False))
         events = intercepted_service
         return events
-
-
-
-
-
-
-

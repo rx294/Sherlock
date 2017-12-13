@@ -1,0 +1,55 @@
+Persistence
+Privilege Escalation
+Defense Evasion
+Credential Access
+Discovery
+Lateral Movement
+Execution
+Collection
+Exfiltration
+Command and Control
+
+Persistence #33a02c
+Privilege Escalation #b2df8a
+Defense Evasion #cab2d6
+Credential Access #6a3d9a
+Discovery #a6cee3
+Lateral Movement #1f78b4
+Execution #fdbf6f
+Collection #ff7f00
+Exfiltration #fb9a99
+Command and Control #e31a1c
+
+.es('Tactics:Persistence'),
+.es('Tactics:Privilege Escalation'),
+.es('Tactics:Defense Evasion'),
+.es('Tactics:Credential Access'),
+.es('Tactics:Discovery'),
+.es('Tactics:Lateral Movement'),
+.es('Tactics:Execution'),
+.es('Tactics:Collection'),
+.es('Tactics:Exfiltration'),
+.es('Tactics:Command and Control')
+
+
+.es(q="Tactics": {
+        "query": "Persistence",
+        "type": "phrase"
+      })
+
+.es(q='Tactics.keyword:Persistence', index=analytics).mvavg(3).color('#33a02c').label(Persistence),.es(q='Tactics.keyword:Privilege Escalation', index=analytics).mvavg(3).color('#b2df8a').label('Privilege Escalation'),.es(q='Tactics.keyword:Defense Evasion', index=analytics).mvavg(3).color('#cab2d6').label('Defense Evasion'),.es(q='Tactics.keyword:Credential Access', index=analytics).mvavg(3).color('#6a3d9a').label('Credential Access'),.es(q='Tactics.keyword:Discovery', index=analytics).mvavg(3).color('#a6cee3').label('Discovery'),.es(q='Tactics.keyword:Lateral Movement', index=analytics).mvavg(3).color('#1f78b4').label('Lateral Movement'),.es(q='Tactics.keyword:Execution', index=analytics).mvavg(3).color('#fdbf6f').label('Execution'),.es(q='Tactics.keyword:Collection', index=analytics).mvavg(3).color('#ff7f00').label('Collection'),.es(q='Tactics.keyword:Exfiltration', index=analytics).mvavg(3).color('#fb9a99').label('Exfiltration'),.es(q='Tactics.keyword:Command and Control', index=analytics).mvavg(3).color('#e31a1c').label('Command and Control')
+
+"Persistence":"#33a02c",
+"Privilege Escalation": "#b2df8a",
+"Defense Evasion": "#cab2d6",
+"Credential Access": "#6a3d9a",
+"Discovery": "#a6cee3",
+"Lateral Movement": "#1f78b4",
+"Execution" :"#fdbf6f",
+"Collection": "#ff7f00",
+"Exfiltration" :"#fb9a99",
+"Command and Control": "#e31a1c"
+
+Technique
+
+spark-submit --jars ../../jars/elasticsearch-hadoop-6.0.1/dist/elasticsearch-hadoop-6.0.1.jar run_spark_analytics.py

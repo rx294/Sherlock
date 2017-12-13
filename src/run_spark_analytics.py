@@ -6,6 +6,7 @@ import glob, os,sys
 from pyspark.sql import SparkSession
 from pyspark.sql import Row
 from pyspark.sql import functions
+from pyspark.sql.types import *
 from pyspark.sql.functions import *
 from pyspark.sql.functions import array, create_map
 from pyspark.sql.functions import lit
@@ -13,6 +14,7 @@ import numpy as np
 from pyspark.sql.types import *
 import itertools
 import time
+
 sys.path.append('/usr/zeppelin/Advanced-Persistent-Threat-Detection/src/CAR_FILES')
 
 CAR_DIR = 'CAR_FILES'
@@ -76,13 +78,17 @@ def is_ready(time,duration):
 def load_cars():
     car_list = []
     os.chdir(CAR_DIR)
-    # sys.path.append(os.path.abspath(__file__))
-    # sys.path.append('./'+CAR_DIR)
+    sys.path.append(os.path.abspath(__file__))
+    sys.path.append('./'+CAR_DIR)
     for file in glob.glob("*.py"):
         file_name = os.path.split(file)[-1].split('.')[0]
         mod = import_module(file_name)
         met = getattr(mod, file_name)()
         car_list.append(met)
+
+    # mod = import_module('CAR_2014_05_001')
+    # met = getattr(mod, 'CAR_2014_05_001')()
+    car_list.append(met)
     return car_list
 
 
