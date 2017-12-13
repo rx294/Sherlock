@@ -19,8 +19,9 @@ TACTICS = ['Defense Evasion']
 DURATION_MINS = 30
 
 from pyspark.sql.functions import *
+from pyspark.sql.types import *
 
-class CAR_2014_04_003():
+class CAR_2013_07_005():
     def __init__(self):
         self.time = 0
         self.duration = DURATION_MINS
@@ -28,17 +29,19 @@ class CAR_2014_04_003():
         self.techniques = TECHNIQUES
         self.df = 0
 
-    def regex_filter(x):
-        regexs = ['.* a .*']
-        if x and x.strip():
-            for r in regexs:
-                if re.match(r, x, re.IGNORECASE):
-                    return True
-        return False
+
 
     def analyze(self):
+        def regex_filter(x):
+            regexs = ['.* a .*']
+            if x and x.strip():
+                for r in regexs:
+                    if re.match(r, x, re.IGNORECASE):
+                        return True
+            return False
+
         regex_udf = udf(regex_filter, BooleanType())
         sysmon_df = self.df.where(col('log_name') == 'Microsoft-Windows-Sysmon/Operational')
         process_create_events = sysmon_df.where(col('event_id') == 1)
-        events = process_create_events.where(regex_udf('event_data.CommandLine'))
+        events = process_create_events.where(regex_udf(col('event_data.CommandLine')))
         return events

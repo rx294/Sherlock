@@ -5,6 +5,7 @@ TACTICS = ['Defense Evasion']
 DURATION_MINS = 30
 
 from pyspark.sql.functions import *
+from pyspark.sql.types import *
 import re
 
 class CAR_2013_05_002():
@@ -15,22 +16,38 @@ class CAR_2013_05_002():
         self.techniques = TECHNIQUES
         self.df = 0
 
-    def is_suspicious(image_path):
-        ''' List of suspicious commands '''
-        suspicious_locations = [
-        'C:\\\\RECYCLER\\\\.*',
-        'C:\\\\SystemVolumeInformation\\\\.*',
-        'C:\\\\Windows\\\\Tasks\\\\.*',
-        'C:\\\\Windows\\\\debug\\\\.*']
-        try:
-            regexes = '(?:%s)' % '|'.join(suspicious_locations)
-            if re.match(regexes, image_path, re.IGNORECASE):
-                return True
-            return False
-        except:
-            return False
+        def is_suspicious(image_path):
+            ''' List of suspicious commands '''
+            suspicious_locations = [
+            'C:\\\\RECYCLER\\\\.*',
+            'C:\\\\SystemVolumeInformation\\\\.*',
+            'C:\\\\Windows\\\\Tasks\\\\.*',
+            'C:\\\\Windows\\\\debug\\\\.*']
+            try:
+                regexes = '(?:%s)' % '|'.join(suspicious_locations)
+                if re.match(regexes, image_path, re.IGNORECASE):
+                    return True
+                return False
+            except:
+                return False
 
     def analyze(self):
+
+        def is_suspicious(image_path):
+            ''' List of suspicious commands '''
+            suspicious_locations = [
+            'C:\\\\RECYCLER\\\\.*',
+            'C:\\\\SystemVolumeInformation\\\\.*',
+            'C:\\\\Windows\\\\Tasks\\\\.*',
+            'C:\\\\Windows\\\\debug\\\\.*']
+            try:
+                regexes = '(?:%s)' % '|'.join(suspicious_locations)
+                if re.match(regexes, image_path, re.IGNORECASE):
+                    return True
+                return False
+            except:
+                return False
+
         is_suspicious_udf = udf(is_suspicious, BooleanType())
 
         sysmon_df = self.df.where(col('log_name') == 'Microsoft-Windows-Sysmon/Operational')
