@@ -4,12 +4,6 @@
 # on a host. When a remote PowerShell session starts, svchost.exe executes 
 # wsmprovhost.exe
 
-# Pseudocode
-
-# process = search Process:Create
-# wsmprovhost = filter process where (exe == "wsmprovhost.exe" and parent_exe == "svchost.exe")
-
-
 TECHNIQUES = ['New Service']
 TACTICS = ['Persistence', 'Privilege Escalation']
 DURATION_MINS = 30

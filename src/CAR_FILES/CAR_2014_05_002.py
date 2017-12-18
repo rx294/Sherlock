@@ -16,17 +16,6 @@
 # user by default. Thus, services are a convenient way for an adversary to gain
 # Persistence and Privilege Escalation.
 
-# Pseudocode
-
-# Returns all processes named "cmd.exe" that have "services.exe" as a parent
-# process. Because this should never happen, the /c flag is redundant in the
-# search.
-
-# process = search Process:Create
-# cmd = filter process where (exe == "cmd.exe" and parent_exe == "services.exe")
-# output cmd
-
-
 TECHNIQUES = ['New Service']
 TACTICS = ['Persistence', 'Privilege Escalation']
 DURATION_MINS = 30

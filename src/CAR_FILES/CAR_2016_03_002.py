@@ -11,16 +11,6 @@
 # connect via IP address, in which case the string "<hostname>" would instead
 # look like IP Address.
 
-# Pseudocode
-
-# Looks for instances of wmic.exe as well as the substrings in the command line
-# * process call create
-# * /node:
-
-# processes = search Process:Create
-# wmic = filter processes where (exe == "wmic.exe" and command_line == "* process call create *" and command_line == "* /node:*")
-# output wmic
-
 
 TECHNIQUES = ['Windows Management Instrumentation   ']
 TACTICS = ['Execution']

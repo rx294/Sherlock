@@ -13,26 +13,6 @@
 # have well-defined white- or blacklists, and should consider looking at an
 # anomaly detection approach, so that this information can be learned dynamically.
 
-# Pseudocode
-# To be effective in deciphering malicious and benign activity, the full command 
-# line is essential. Similarly, having information about the parent process can help
-#  with making decisions and tuning to an environment.
-
-# process = search Process:Create
-# info_command = filter process where (
-#  exe == "hostname.exe" or 
-#  exe == "ipconfig.exe" or 
-#  exe == "net.exe" or 
-#  exe == "quser.exe" or 
-#  exe == "qwinsta.exe" or
-#  exe == "sc" and (command_line match " query" or command_line match " qc")) or
-#  exe == "systeminfo.exe" or 
-#  exe == "tasklist.exe" or 
-#  exe == "whoami.exe"
-# )
-# output info_command
-
-
 TECHNIQUES = ['Account Discovery','Permission Groups','Local Network Configuration',
               'System Information','System Owner/User','Process Discovery',
               'System Service Discovery']

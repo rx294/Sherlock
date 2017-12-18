@@ -5,15 +5,6 @@
 # compress data, but the command line usage and context of archiving tools, such
 # as ZIP, RAR, and 7ZIP, should be monitored.
 
-# Pseudocode
-# This analytic looks for the command line argument a , which is used by RAR.
-# However, there may be other programs that have this as a legitimate argument
-# and may need to be filtered out.
-
-# processes = search Process:Create
-# rar_argument = filter processes where (command_line == "* a *")
-# output rar_argument
-
 TECHNIQUES = ['Masquerading']
 TACTICS = ['Defense Evasion']
 DURATION_MINS = 30

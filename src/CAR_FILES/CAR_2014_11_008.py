@@ -13,15 +13,6 @@
 # CAR-2014-11-003: Debuggers for Accessibility Applications, which detects the
 # accessibility programs in the command line.
 
-# Pseudocode
-# Look for instances of processes where the parent executable is winlogon.exe and the 
-# child is an instance of a command prompt.
-
-# processes = search Process:Create
-# winlogon_cmd = filter processes where (parent_exe == "winlogon.exe" and exe == "cmd.exe")
-# output winlogon_cmd
-
-
 TECHNIQUES = ['Accessibility Features']
 TACTICS = ['Execution', 'Persistence', 'Privilege Escalation']
 DURATION_MINS = 30

@@ -6,13 +6,6 @@
 # PowerShell an easy way to circumvent security measures. This analytic detects
 # execution of PowerShell scripts.
 
-# Pseudocode
-# Look for versions of PowerShell that were not launched interactively.
-
-# process = search Process:Create
-# powershell = filter process where (exe == "powershell.exe" AND parent_exe != "explorer.exe" )
-# output powershell
-
 TECHNIQUES = ['PowerShell','Scripting']
 TACTICS = ['Defense Evasion', 'Execution']
 DURATION_MINS = 30
