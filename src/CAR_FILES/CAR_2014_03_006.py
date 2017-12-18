@@ -34,6 +34,6 @@ class CAR_2014_03_006():
     def analyze(self):
         sysmon_df = self.df.where(col('log_name') == 'Microsoft-Windows-Sysmon/Operational')
         process_create_events = sysmon_df.where(col('event_id') == 1)
-        events = process_create_events.where((col('event_data.Image') == "C:\\Windows\\System32\\rundll32.exe"))
-        events = events.where((col('event_data.ParentImage') != "C:\\Windows\\explorer.exe"))
+        events = process_create_events.where(col('event_data.Image').rlike("rundll32.exe"))
+        events = events.where(col('event_data.ParentImage').rlike("explorer.exe") == False)
         return events

@@ -34,5 +34,5 @@ class CAR_2013_08_001():
     def analyze(self):
         sysmon_df = self.df.where(col('log_name') == 'Microsoft-Windows-Sysmon/Operational')
         process_create_events = sysmon_df.where(col('event_id') == 1)
-        events = process_create_events.where((col('event_data.Image') == "C:\\Windows\\System32\\schtasks.exe"))
+        events = process_create_events.where(col('event_data.Image').rlike("schtasks.exe"))
         return events
