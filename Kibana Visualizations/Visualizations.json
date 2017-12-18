@@ -98,20 +98,6 @@
     }
   },
   {
-    "_id": "AWBEdnnY2lDISLgezoBP",
-    "_type": "visualization",
-    "_source": {
-      "title": "Timeseries",
-      "visState": "{\"title\":\"Timeseries\",\"type\":\"timelion\",\"params\":{\"type\":\"timelion\",\"expression\":\".es(q='Tactics.keyword:Persistence', index=analytics).mvavg(3).color('#33a02c').label(Persistence),.es(q='Tactics.keyword:Privilege Escalation', index=analytics).mvavg(3).color('#b2df8a').label('Privilege Escalation'),.es(q='Tactics.keyword:Defense Evasion', index=analytics).mvavg(3).color('#cab2d6').label('Defense Evasion'),.es(q='Tactics.keyword:Credential Access', index=analytics).mvavg(3).color('#6a3d9a').label('Credential Access'),.es(q='Tactics.keyword:Discovery', index=analytics).mvavg(3).color('#a6cee3').label('Discovery'),.es(q='Tactics.keyword:Lateral Movement', index=analytics).mvavg(3).color('#1f78b4').label('Lateral Movement'),.es(q='Tactics.keyword:Execution', index=analytics).mvavg(3).color('#fdbf6f').label('Execution'),.es(q='Tactics.keyword:Collection', index=analytics).mvavg(3).color('#ff7f00').label('Collection'),.es(q='Tactics.keyword:Exfiltration', index=analytics).mvavg(3).color('#fb9a99').label('Exfiltration'),.es(q='Tactics.keyword:Command and Control', index=analytics).mvavg(3).color('#e31a1c').label('Command and Control')\",\"interval\":\"1d\"},\"aggs\":[],\"listeners\":{}}",
-      "uiStateJSON": "{}",
-      "description": "",
-      "version": 1,
-      "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\"query\":{\"match_all\":{}},\"filter\":[]}"
-      }
-    }
-  },
-  {
     "_id": "10",
     "_type": "visualization",
     "_source": {
@@ -164,20 +150,6 @@
       "version": 1,
       "kibanaSavedObjectMeta": {
         "searchSourceJSON": "{\n  \"index\": \"AWBDrZ1w2lDISLgezmnW\",\n  \"query\": {\n    \"match_all\": {}\n  },\n  \"filter\": [\n    {\n      \"meta\": {\n        \"index\": \"AWBDrZ1w2lDISLgezmnW\",\n        \"negate\": false,\n        \"disabled\": false,\n        \"alias\": \"Defense Evasion\",\n        \"type\": \"phrase\",\n        \"key\": \"Tactics\",\n        \"value\": \"Defense Evasion\"\n      },\n      \"query\": {\n        \"match\": {\n          \"Tactics\": {\n            \"query\": \"Defense Evasion\",\n            \"type\": \"phrase\"\n          }\n        }\n      },\n      \"$state\": {\n        \"store\": \"appState\"\n      }\n    }\n  ]\n}"
-      }
-    }
-  },
-  {
-    "_id": "AWBEGVh42lDISLgeznnf",
-    "_type": "visualization",
-    "_source": {
-      "title": "Tactics",
-      "visState": "{\n  \"title\": \"Tactics\",\n  \"type\": \"pie\",\n  \"params\": {\n    \"addLegend\": true,\n    \"addTooltip\": true,\n    \"isDonut\": true,\n    \"legendPosition\": \"right\",\n    \"type\": \"pie\"\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"enabled\": true,\n      \"type\": \"count\",\n      \"schema\": \"metric\",\n      \"params\": {}\n    },\n    {\n      \"id\": \"2\",\n      \"enabled\": true,\n      \"type\": \"terms\",\n      \"schema\": \"segment\",\n      \"params\": {\n        \"field\": \"Tactics.keyword\",\n        \"size\": 5,\n        \"order\": \"desc\",\n        \"orderBy\": \"1\",\n        \"customLabel\": \"Tactics\"\n      }\n    }\n  ],\n  \"listeners\": {}\n}",
-      "uiStateJSON": "{\n  \"vis\": {\n    \"legendOpen\": true,\n    \"colors\": {\n        \"Persistence\":\"#33a02c\",\n        \"Privilege Escalation\": \"#b2df8a\",\n        \"Defense Evasion\": \"#cab2d6\",\n        \"Credential Access\": \"#6a3d9a\",\n        \"Discovery\": \"#a6cee3\",\n        \"Lateral Movement\": \"#1f78b4\",\n        \"Execution\" :\"#fdbf6f\",\n        \"Collection\": \"#ff7f00\",\n        \"Exfiltration\" :\"#fb9a99\",\n        \"Command and Control\": \"#e31a1c\"\n    }\n  }\n}",
-      "description": "",
-      "version": 1,
-      "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\n  \"index\": \"AWBDrZ1w2lDISLgezmnW\",\n  \"query\": {\n    \"match_all\": {}\n  },\n  \"filter\": []\n}"
       }
     }
   },
@@ -266,58 +238,44 @@
     }
   },
   {
-    "_id": "AWBEjXVR2lDISLgezoPK",
+    "_id": "AWBEseWw2lDISLgezogQ",
     "_type": "visualization",
     "_source": {
-      "title": "Credential Access Pie",
-      "visState": "{\"title\":\"Credential Access Pie\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"type\":\"pie\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"Technique.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Technique\"}}],\"listeners\":{}}",
-      "uiStateJSON": "{}",
+      "title": "Event Logs3",
+      "visState": "{\"title\":\"Event Logs3\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":true,\"showMeticsAtAllLevels\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"showTotal\":false,\"totalFunc\":\"sum\",\"type\":\"table\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"@timestamp\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Timestamp\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"computer_name.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Host\"}},{\"id\":\"4\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"event_id\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Event ID\"}},{\"id\":\"5\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"event_data.DestinationIp.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"DestinationIp\"}},{\"id\":\"6\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"event_data.DestinationPort.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"DestinationPort\"}},{\"id\":\"11\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"event_data.SourceIp.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"SourceIp\"}},{\"id\":\"12\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"event_data.SourcePort.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"SourcePort\"}},{\"id\":\"7\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"event_data.Image.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Process Name\"}},{\"id\":\"8\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"event_data.ParentImage.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"ParentImage\"}},{\"id\":\"9\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"event_data.User.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"User\"}},{\"id\":\"10\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"event_data.ProcessId.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"ProcessId\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}",
       "description": "",
       "version": 1,
       "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"query\":{\"match_all\":{}},\"filter\":[{\"meta\":{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"phrase\",\"key\":\"Tactics\",\"value\":\"Credential Access\"},\"query\":{\"match\":{\"Tactics\":{\"query\":\"Credential Access\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
+        "searchSourceJSON": "{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"query\":{\"match_all\":{}},\"filter\":[]}"
       }
     }
   },
   {
-    "_id": "AWBEkSnr2lDISLgezoTa",
+    "_id": "eventLog",
     "_type": "visualization",
     "_source": {
-      "title": "Exfiltration Pie",
-      "visState": "{\"title\":\"Exfiltration Pie\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"type\":\"pie\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"Technique.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Technique\"}}],\"listeners\":{}}",
-      "uiStateJSON": "{}",
+      "title": "Event Logs2",
+      "visState": "{\"title\":\"Event Logs2\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"showTotal\":false,\"totalFunc\":\"sum\",\"type\":\"table\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"@timestamp\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Timestamp\"}},{\"id\":\"4\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"event_id\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Event ID\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"computer_name.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Host\"}},{\"id\":\"5\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"event_data.DestinationIp.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"DestinationIp\"}},{\"id\":\"6\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"event_data.DestinationPort.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"DestinationPort\"}},{\"id\":\"11\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"event_data.SourceIp.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"SourceIp\"}},{\"id\":\"12\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"event_data.SourcePort.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"SourcePort\"}},{\"id\":\"7\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"event_data.Image.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Process Name\"}},{\"id\":\"8\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"event_data.ParentImage.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"ParentImage\"}},{\"id\":\"9\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"event_data.User.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"User\"}},{\"id\":\"10\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"event_data.ProcessId.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"ProcessId\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}",
       "description": "",
       "version": 1,
       "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"query\":{\"match_all\":{}},\"filter\":[{\"meta\":{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"phrase\",\"key\":\"Tactics\",\"value\":\"Exfiltration\"},\"query\":{\"match\":{\"Tactics\":{\"query\":\"Exfiltration\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
+        "searchSourceJSON": "{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"query\":{\"match_all\":{}},\"filter\":[]}"
       }
     }
   },
   {
-    "_id": "AWBEjlrz2lDISLgezoQC",
+    "_id": "AWBEmi-o2lDISLgezobr",
     "_type": "visualization",
     "_source": {
-      "title": "Discovery Pie",
-      "visState": "{\"title\":\"Discovery Pie\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":false,\"type\":\"pie\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"Technique.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Technique\"}}],\"listeners\":{}}",
-      "uiStateJSON": "{}",
+      "title": "Event Logs",
+      "visState": "{\"title\":\"Event Logs\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"showTotal\":false,\"totalFunc\":\"sum\",\"type\":\"table\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"@timestamp\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Timestamp\"}},{\"id\":\"4\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"event_id\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Event ID\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"computer_name.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Host\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}",
       "description": "",
       "version": 1,
       "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"query\":{\"match_all\":{}},\"filter\":[{\"meta\":{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"phrase\",\"key\":\"Tactics\",\"value\":\"Discovery\"},\"query\":{\"match\":{\"Tactics\":{\"query\":\"Discovery\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
-      }
-    }
-  },
-  {
-    "_id": "AWBEkH-V2lDISLgezoSk",
-    "_type": "visualization",
-    "_source": {
-      "title": "Collection Pie",
-      "visState": "{\"title\":\"Collection Pie\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"type\":\"pie\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"Technique.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Technique\"}}],\"listeners\":{}}",
-      "uiStateJSON": "{}",
-      "description": "",
-      "version": 1,
-      "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"query\":{\"match_all\":{}},\"filter\":[{\"meta\":{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"phrase\",\"key\":\"Tactics\",\"value\":\"Collection\"},\"query\":{\"match\":{\"Tactics\":{\"query\":\"Collection\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
+        "searchSourceJSON": "{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"query\":{\"match_all\":{}},\"filter\":[]}"
       }
     }
   },
@@ -332,6 +290,90 @@
       "version": 1,
       "kibanaSavedObjectMeta": {
         "searchSourceJSON": "{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"query\":{\"match_all\":{}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "AWBEGVh42lDISLgeznnf",
+    "_type": "visualization",
+    "_source": {
+      "title": "Tactics",
+      "visState": "{\"title\":\"Tactics\",\"type\":\"pie\",\"params\":{\"addLegend\":true,\"addTooltip\":true,\"isDonut\":true,\"legendPosition\":\"right\",\"type\":\"pie\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"Tactics.keyword\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Tactics\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"legendOpen\":true,\"colors\":{\"Persistence\":\"#33a02c\",\"Privilege Escalation\":\"#b2df8a\",\"Defense Evasion\":\"#cab2d6\",\"Credential Access\":\"#6a3d9a\",\"Discovery\":\"#a6cee3\",\"Lateral Movement\":\"#1f78b4\",\"Execution\":\"#fdbf6f\",\"Collection\":\"#ff7f00\",\"Exfiltration\":\"#fb9a99\",\"Command and Control\":\"#e31a1c\"}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"query\":{\"match_all\":{}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "AWBEjXVR2lDISLgezoPK",
+    "_type": "visualization",
+    "_source": {
+      "title": "Credential Access Pie",
+      "visState": "{\"title\":\"Credential Access Pie\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"type\":\"pie\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"Technique.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Technique\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"legendOpen\":false}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"query\":{\"match_all\":{}},\"filter\":[{\"meta\":{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"phrase\",\"key\":\"Tactics\",\"value\":\"Credential Access\"},\"query\":{\"match\":{\"Tactics\":{\"query\":\"Credential Access\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
+      }
+    }
+  },
+  {
+    "_id": "AWBEkH-V2lDISLgezoSk",
+    "_type": "visualization",
+    "_source": {
+      "title": "Collection Pie",
+      "visState": "{\"title\":\"Collection Pie\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"type\":\"pie\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"Technique.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Technique\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"legendOpen\":false}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"query\":{\"match_all\":{}},\"filter\":[{\"meta\":{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"phrase\",\"key\":\"Tactics\",\"value\":\"Collection\"},\"query\":{\"match\":{\"Tactics\":{\"query\":\"Collection\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
+      }
+    }
+  },
+  {
+    "_id": "AWBEkSnr2lDISLgezoTa",
+    "_type": "visualization",
+    "_source": {
+      "title": "Exfiltration Pie",
+      "visState": "{\"title\":\"Exfiltration Pie\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"type\":\"pie\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"Technique.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Technique\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"legendOpen\":false}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"query\":{\"match_all\":{}},\"filter\":[{\"meta\":{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"phrase\",\"key\":\"Tactics\",\"value\":\"Exfiltration\"},\"query\":{\"match\":{\"Tactics\":{\"query\":\"Exfiltration\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
+      }
+    }
+  },
+  {
+    "_id": "AWBEjlrz2lDISLgezoQC",
+    "_type": "visualization",
+    "_source": {
+      "title": "Discovery Pie",
+      "visState": "{\"title\":\"Discovery Pie\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"type\":\"pie\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"Technique.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Technique\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"legendOpen\":false}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"query\":{\"match_all\":{}},\"filter\":[{\"meta\":{\"index\":\"AWBDrZ1w2lDISLgezmnW\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"phrase\",\"key\":\"Tactics\",\"value\":\"Discovery\"},\"query\":{\"match\":{\"Tactics\":{\"query\":\"Discovery\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
+      }
+    }
+  },
+  {
+    "_id": "AWBEdnnY2lDISLgezoBP",
+    "_type": "visualization",
+    "_source": {
+      "title": "Timeseries",
+      "visState": "{\"title\":\"Timeseries\",\"type\":\"timelion\",\"params\":{\"type\":\"timelion\",\"expression\":\".es(q='Tactics.keyword:Persistence', index=analytics).mvavg(5).color('#33a02c').label(Persistence).lines(width=10.0),.es(q='Tactics.keyword:Privilege Escalation', index=analytics).mvavg(5).color('#b2df8a').label('Privilege Escalation').lines(width=10.0),.es(q='Tactics.keyword:Defense Evasion', index=analytics).mvavg(5).color('#cab2d6').label('Defense Evasion').lines(width=10.0),.es(q='Tactics.keyword:Credential Access', index=analytics).mvavg(5).color('#6a3d9a').label('Credential Access').lines(width=10.0),.es(q='Tactics.keyword:Discovery', index=analytics).mvavg(5).color('#a6cee3').label('Discovery').lines(width=10.0),.es(q='Tactics.keyword:Lateral Movement', index=analytics).mvavg(5).color('#1f78b4').label('Lateral Movement').lines(width=10.0),.es(q='Tactics.keyword:Execution', index=analytics).mvavg(5).color('#fdbf6f').label('Execution').lines(width=10.0),.es(q='Tactics.keyword:Collection', index=analytics).mvavg(5).color('#ff7f00').label('Collection').lines(width=10.0),.es(q='Tactics.keyword:Exfiltration', index=analytics).mvavg(5).color('#fb9a99').label('Exfiltration').lines(width=10.0),.es(q='Tactics.keyword:Command and Control', index=analytics).mvavg(5).color('#e31a1c').label('Command and Control').lines(width=10.0)\",\"interval\":\"1h\"},\"aggs\":[],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"match_all\":{}},\"filter\":[]}"
       }
     }
   }

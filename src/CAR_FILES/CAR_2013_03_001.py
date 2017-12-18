@@ -29,7 +29,7 @@ class CAR_2013_03_001():
     def analyze(self):
         sysmon_df = self.df.where(col('log_name') == 'Microsoft-Windows-Sysmon/Operational')
         process_create_events = sysmon_df.where(col('event_id') == 1)
-        events = process_create_events.where(col('event_data.Image').rlike("cmd.exe"))
+        events = process_create_events.where(col('event_data.Image').rlike("cmd.exe")) \
                                       .where(col('event_data.ParentImage').rlike("explorer.exe") == False)
 
         process_ids = list(set([int(i.process_id) for i in events.select('process_id').collect()]))

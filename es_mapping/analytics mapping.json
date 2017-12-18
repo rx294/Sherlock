@@ -1,4 +1,3 @@
-PUT test4
 {
     "mappings": {
       "wineventlog": {
