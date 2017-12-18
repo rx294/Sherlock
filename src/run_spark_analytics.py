@@ -9,8 +9,6 @@ from pyspark.sql import functions
 from pyspark.sql.functions import *
 from pyspark.sql.types import *
 
-# sys.path.append('/usr/zeppelin/Advanced-Persistent-Threat-Detection/src/CAR_FILES')
-
 # Analytic file folder
 CAR_DIR = 'CAR_FILES'
 sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)),CAR_DIR))
@@ -24,7 +22,7 @@ ES_WINLOG_INDEX = "winlogbeat*"
 ES_WINLOG_TYPE = "wineventlog"
 
 # Index and type on elasticsearch where the analyzed logs files are collected
-ES_ANALYTICS_INDEX = "APTDS"
+ES_ANALYTICS_INDEX = "aptds_analytics"
 ES_ANALYTICS_TYPE = "wineventlog"
 
 # ELasticsearch log write mode
@@ -34,7 +32,7 @@ WRITE_MODE = 'append'
 WAIT_SECONDS = 15
 
 # Time from which the logs are to be analyzed
-DAYS_OFFSET = 10
+DAYS_OFFSET = 19
 START_TIME = datetime.datetime.now() + datetime.timedelta(days = -DAYS_OFFSET)
 
 #Spark settings
