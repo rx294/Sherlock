@@ -104,7 +104,7 @@ Below is an example of an analytic describing the required style.
 
 CAR-2013-02-003: Processes Spawning cmd.exe
 
-![Sherlock Logo](/images/analytic..png)
+![Sherlock Logo](/images/analytic.png)
 
 The file name must match the class name. The appropriate TECHNIQUES and TACTICS and DURATION must be defined. The analytic code is defined within the analyze method.
 
@@ -148,7 +148,7 @@ Following is the list of CAR Analytics implemented in Sherlock.
 
 ###### Execution
 
-![Sherlock Logo](/images/execution..png)
+![Sherlock Logo](/images/execution.png)
 
 Run Command:
 
