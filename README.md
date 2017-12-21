@@ -199,7 +199,6 @@ In conclusion, Sherlock could be a valuable tool in detecting the presence of AP
 # Bibliography
 
 | [1] | &quot;Advanced Persistent Threat (APT),&quot; [Online]. Available: http://searchsecurity.techtarget.com/definition/advanced-persistent-threat-APT. |
-| --- | --- |
 | [2] | &quot;Cyber Kill Chain,&quot; [Online]. Available: https://www.lockheedmartin.com/us/what-we-do/aerospace-defense/cyber/cyber-kill-chain.html. |
 | [3] | &quot;MITRE ATT&amp;CK,&quot; [Online]. Available: https://attack.mitre.org/wiki/Main\_Page . |
 | [4] | A. Matrix. [Online]. Available: https://attack.mitre.org/wiki/ATT%26CK\_Matrix. |
