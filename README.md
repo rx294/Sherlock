@@ -1,6 +1,4 @@
-<!-- # ![](data:image/*; -->
-
-###### Rony Xavier
+![Sherlock Logo](/images/logo.png)
 
 # Project Description
 
