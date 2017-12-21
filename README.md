@@ -2,7 +2,7 @@
 
 ###### Rony Xavier
 
-# Project DESCRIPTION
+# Project Description
 
 ### Advanced persistant threat
 
@@ -24,13 +24,13 @@ Tactic categories are listed on the top row, individual techniques as cells unde
 
 <!--  ![](data:image/
  -->
-### Cyber analytic repository
+### Cyber Analytic Repository
 
 The Cyber Analytics Repository (CAR) is a knowledge base of analytics developed by  [MITRE](https://www.mitre.org/) based on the Adversary Tactics, Techniques, and Common Knowledge (ATT&amp;CK™) adversary model.
 
 Analytics stored in CAR contain the following information, a hypothesis which explains the idea behind the analytic, the information domain or the primary domain the analytic is designed to operate within (e.g. host, network, process, external) references to ATT&amp;CK Techniques and Tactics that the analytic detects the type of analytic.
 
-### purpose
+### Purpose
 
 Sherlock is designed to correlate possible adversary tactics detected through the analysis, to stages in the ATT&amp;CK Frame will expose systems that are at a higher probability of infection. Sherlock visualizes its findings and let the user see the patterns and make connections. It is not designed to replace and anti-virus tool since with Sherlock the user makes the decisions and remediation and not software.
 
@@ -42,7 +42,7 @@ Sherlock is designed to correlate possible adversary tactics detected through th
 
 # Project Design
 
-### Design diagram
+### Design Diagram
 
  <!-- ![](data:image -->
 
@@ -66,7 +66,7 @@ Sherlock is designed to correlate possible adversary tactics detected through th
 | Sherlock 1.0 | Analysis | Zeppelin Debian GNU/Linux 8 (Docker) |
 | macOS High Sierra | WorkStation | MacBook Pro (13-inch, Mid 2012) |
 
-### collection
+### Collection
 
 Log sources for the analysis are the following sensors:
 
@@ -80,7 +80,7 @@ Log sources for the analysis are the following sensors:
 
 All logs are collected using WinlogBeat and shipped to Logstash. Multiple hosts ship logs to the instance of Logstash which is shipped to the instance of Elasticsearch.
 
-### storage
+### Storage
 
 Logstash ships logs into the instance of Elasticsearch at index: &#39;winlogbeat\*&#39;.
 
@@ -88,11 +88,11 @@ The same instance of Elasticsearch also saves the analyzed logs from &#39;Sherlo
 
 The mapping for the index &#39;sherlock&#39; is defined in &#39;[SHERLOCK\_HOME]/es\_mapping/sherlock\_mapping.json&#39;
 
-### ANALYSIS
+### Analysis
 
 Sherlock collects logs from the Elasticsearch index &#39;winlogbeat\*&#39; using &#39;Elastic-Hadoop&#39; plugin. The collected logs are analyzed using CAR analytic codes and shipped back into Elasticsearch at index &#39;sherlock&#39; for review.
 
-###### code Structure
+###### Code Structure
 
 Sherlock is designed to be a live analysis tool; however, it can be started with a DAYS\_OFFET parameter to start evaluation from past logs.  Once the past logs have been evaluated it switches to live analysis.
 
@@ -116,7 +116,7 @@ The file name must match the class name. The appropriate TECHNIQUES and TACTICS 
 
 
 
-###### Analytic code
+###### Analytic Code
 
 Following is the list of CAR Analytics implemented in Sherlock.
 
@@ -164,8 +164,8 @@ The findings from Sherlock analysis is visualized using Kibana Dashboard, image 
  -->
 Below is a zoom in of the &#39;Tactics&#39; and &#39;Techniques&#39; part of the dashboard. The count of indicators of each tactic is shown in the top row. Row below shows a pie chart of &#39;Techniques&#39; within each &#39;Tactic&#39;. Pie chart on the right shows &#39;Tactics&#39;. The Pie Charts can be used to filter data.
 
- ![](data:image
-
+<!--  ![](data:image
+ -->
 Below is the zoom in of the &#39;Timeseries&#39; part of the dashboard which can help review indicators of &#39;Tactics&#39; in a time-based view. MITRE ATT&amp;CK claims that the adversary will naturally progress the &#39;Tactics&#39; in sequence, hence &#39;Timeseries&#39; can be useful to view the progression of a possible adversary. Data can be filtered using the &#39;Timeseries&#39; chart as well.
 
 <!--  ![](data:image
@@ -180,17 +180,17 @@ Below is a zoom in of the Log view of the Sherlock Dashboard where individual lo
  -->
 
 
-# test &amp; results
+# Test &amp; Results
 
 For testing we have two Windows hosts where commands have been run to trigger indicators of &#39;Tactics&#39;. Following are two scenarios:
 
-###### Adversary presence likely
+###### Adversary Presence Likely
 
  Dashboard below filtered with Host1 shows a likely presence of an adversary. Indicators of all the &#39;Tactics&#39; are present and &#39;Timeseries&#39; shows that the events happened in relatively the right sequence.
 
 <!--  ![](data:image
  -->
-###### Adversary presence unlikely
+###### Adversary Presence Unlikely
 
 Dashboard below filtered with Host2 showing an unlikely presence of an adversary. Not all Indicators of all the &#39;Tactics&#39; are present and &#39;Timeseries&#39; shows that the events did not  happen in the right sequence.
 
