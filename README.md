@@ -90,7 +90,7 @@ The mapping for the index &#39;sherlock&#39; is defined in &#39;[SHERLOCK\_HOME]
 
 Sherlock collects logs from the Elasticsearch index &#39;winlogbeat\*&#39; using &#39;Elastic-Hadoop&#39; plugin. The collected logs are analyzed using CAR analytic codes and shipped back into Elasticsearch at index &#39;sherlock&#39; for review.
 
-###### Code Structure
+#### Code Structure
 
 Sherlock is designed to be a live analysis tool; however, it can be started with a DAYS\_OFFET parameter to start evaluation from past logs.  Once the past logs have been evaluated it switches to live analysis.
 
@@ -114,7 +114,7 @@ The file name must match the class name. The appropriate TECHNIQUES and TACTICS 
 
 
 
-###### Analytic Code
+#### Analytic Code
 
 Following is the list of CAR Analytics implemented in Sherlock.
 
@@ -146,7 +146,7 @@ Following is the list of CAR Analytics implemented in Sherlock.
 
 
 
-###### Execution
+#### Execution
 
 ![Sherlock Logo](/images/execution.png)
 
@@ -180,13 +180,13 @@ Below is a zoom in of the Log view of the Sherlock Dashboard where individual lo
 
 For testing we have two Windows hosts where commands have been run to trigger indicators of &#39;Tactics&#39;. Following are two scenarios:
 
-###### Adversary Presence Likely
+#### Adversary Presence Likely
 
  Dashboard below filtered with Host1 shows a likely presence of an adversary. Indicators of all the &#39;Tactics&#39; are present and &#39;Timeseries&#39; shows that the events happened in relatively the right sequence.
 
 ![Sherlock Logo](/images/kibana6.png)
 
-###### Adversary Presence Unlikely
+#### Adversary Presence Unlikely
 
 Dashboard below filtered with Host2 showing an unlikely presence of an adversary. Not all Indicators of all the &#39;Tactics&#39; are present and &#39;Timeseries&#39; shows that the events did not  happen in the right sequence.
 
