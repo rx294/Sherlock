@@ -13,7 +13,7 @@ Developed by Lockheed Martin, the Cyber Kill Chain® framework is part of the In
 MITRE&#39;s Adversarial Tactics, Techniques, and Common Knowledge (ATT&amp;CK™) is a curated knowledge base and model for cyber adversary behavior, reflecting the various phases of an adversary&#39;s lifecycle and the platforms they are known to target[CITATION MIT \l 1033]. ATT&amp;CK expands on the Cyber Kill Chain stages after &#39;Exploit&#39;.
 
 ![Sherlock Logo](/images/mitreattack.png)
- -->
+
 ### MITRE ATT&amp;CK Matrix
 
 The ATT&amp;CK Matrix for Enterprise provides a visual representation of the adversarial techniques described in the ATT&amp;CK for Enterprise threat model.
@@ -21,7 +21,7 @@ The ATT&amp;CK Matrix for Enterprise provides a visual representation of the adv
 Tactic categories are listed on the top row, individual techniques as cells underneath each tactic to denote that technique can be used to accomplish that particular tactic. Techniques can span multiple tactic categories signifying that they can be used for more than one purpose.[CITATION ATT \l 1033]
 
 ![Sherlock Logo](/images/mitrematrix.png)
- -->
+
 ### Cyber Analytic Repository
 
 The Cyber Analytics Repository (CAR) is a knowledge base of analytics developed by  [MITRE](https://www.mitre.org/) based on the Adversary Tactics, Techniques, and Common Knowledge (ATT&amp;CK™) adversary model.
@@ -42,7 +42,7 @@ Sherlock is designed to correlate possible adversary tactics detected through th
 
 ### Design Diagram
 
-![Sherlock Logo](/images/design..png)
+![Sherlock Logo](/images/design.png)
 
 ### Technologies
 
