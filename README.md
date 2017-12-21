@@ -2,7 +2,7 @@
 
 # Project Description
 
-### Advanced persistant threat
+### Advanced Persistant Threat
 
 An advanced persistent threat (APT) is a network attack in which an unauthorized person gains access to a network and stays there undetected for a long period of time. The intention of an APT attack is to steal data rather than to cause damage to the network or organization.[CITATION Adv \l 1033] Since APTs are usually targeted, it is  not easily detected by traditional methods such as hash signature or yara rules.
 
