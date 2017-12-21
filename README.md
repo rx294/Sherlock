@@ -12,7 +12,7 @@ Developed by Lockheed Martin, the Cyber Kill Chain® framework is part of the In
 
 MITRE&#39;s Adversarial Tactics, Techniques, and Common Knowledge (ATT&amp;CK™) is a curated knowledge base and model for cyber adversary behavior, reflecting the various phases of an adversary&#39;s lifecycle and the platforms they are known to target[CITATION MIT \l 1033]. ATT&amp;CK expands on the Cyber Kill Chain stages after &#39;Exploit&#39;.
 
-<!--  ![](data:image
+![Sherlock Logo](/images/mitreattack.png)
  -->
 ### MITRE ATT&amp;CK Matrix
 
@@ -20,7 +20,7 @@ The ATT&amp;CK Matrix for Enterprise provides a visual representation of the adv
 
 Tactic categories are listed on the top row, individual techniques as cells underneath each tactic to denote that technique can be used to accomplish that particular tactic. Techniques can span multiple tactic categories signifying that they can be used for more than one purpose.[CITATION ATT \l 1033]
 
-<!--  ![](data:image/
+![Sherlock Logo](/images/mitrematrix.png)
  -->
 ### Cyber Analytic Repository
 
@@ -42,7 +42,7 @@ Sherlock is designed to correlate possible adversary tactics detected through th
 
 ### Design Diagram
 
- <!-- ![](data:image -->
+![Sherlock Logo](/images/design..png)
 
 ### Technologies
 
@@ -104,7 +104,7 @@ Below is an example of an analytic describing the required style.
 
 CAR-2013-02-003: Processes Spawning cmd.exe
 
-<!--  ![](data:image -->
+![Sherlock Logo](/images/analytic..png)
 
 The file name must match the class name. The appropriate TECHNIQUES and TACTICS and DURATION must be defined. The analytic code is defined within the analyze method.
 
@@ -148,8 +148,8 @@ Following is the list of CAR Analytics implemented in Sherlock.
 
 ###### Execution
 
-<!--  ![](data:image
- -->
+![Sherlock Logo](/images/execution..png)
+
 Run Command:
 
 spark-submit --jars elasticsearch-hadoop-6.0.1.jar sherlock.py
@@ -158,25 +158,23 @@ spark-submit --jars elasticsearch-hadoop-6.0.1.jar sherlock.py
 
 The findings from Sherlock analysis is visualized using Kibana Dashboard, image below shows the complete Sherlock Dashboard.
 
-<!--  ![](data:image/*
- -->
+![Sherlock Logo](/images/kibana1.png)
+
 Below is a zoom in of the &#39;Tactics&#39; and &#39;Techniques&#39; part of the dashboard. The count of indicators of each tactic is shown in the top row. Row below shows a pie chart of &#39;Techniques&#39; within each &#39;Tactic&#39;. Pie chart on the right shows &#39;Tactics&#39;. The Pie Charts can be used to filter data.
 
-<!--  ![](data:image
- -->
+![Sherlock Logo](/images/kibana2.png)
+
 Below is the zoom in of the &#39;Timeseries&#39; part of the dashboard which can help review indicators of &#39;Tactics&#39; in a time-based view. MITRE ATT&amp;CK claims that the adversary will naturally progress the &#39;Tactics&#39; in sequence, hence &#39;Timeseries&#39; can be useful to view the progression of a possible adversary. Data can be filtered using the &#39;Timeseries&#39; chart as well.
 
-<!--  ![](data:image
+![Sherlock Logo](/images/kibana3.png)
 
- ![](data:image -->
+![Sherlock Logo](/images/kibana4.png)
 
 On the left is a zoom in of the Host section showing a list of analyzed hosts. Hosts can be filtered here to review individual systems.
 
 Below is a zoom in of the Log view of the Sherlock Dashboard where individual logs showing indicators can be reviewed.
 
-<!--  ![](data:image
- -->
-
+![Sherlock Logo](/images/kibana5.png)
 
 # Test &amp; Results
 
@@ -186,14 +184,14 @@ For testing we have two Windows hosts where commands have been run to trigger in
 
  Dashboard below filtered with Host1 shows a likely presence of an adversary. Indicators of all the &#39;Tactics&#39; are present and &#39;Timeseries&#39; shows that the events happened in relatively the right sequence.
 
-<!--  ![](data:image
- -->
+![Sherlock Logo](/images/kibana6.png)
+
 ###### Adversary Presence Unlikely
 
 Dashboard below filtered with Host2 showing an unlikely presence of an adversary. Not all Indicators of all the &#39;Tactics&#39; are present and &#39;Timeseries&#39; shows that the events did not  happen in the right sequence.
 
-<!--  ![](data:image
- -->
+![Sherlock Logo](/images/kibana7.png)
+
 # Conclusion
 
 In conclusion, Sherlock could be a valuable tool in detecting the presence of APTs in a system where traditional methods of detection might fail. Visualizations are significantly more effective than going through log text. Sherlock analytics can enable even novice Cyber Security Analysts make expert level analysis. In future, I hope to enhance Sherlock analytics with machine learning. The current version could analyze a power user such as a SysAdmin to be an adversary, machine learning will alleviate that error. Sherlock currently include only the publically released version of MITRE CAR Analytics, as a future enhancement I hope to include to enhance it with its private repository as well.
