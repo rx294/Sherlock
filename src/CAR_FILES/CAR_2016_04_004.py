@@ -5,13 +5,6 @@
 # security log. This behavior would be a LogonType of 3 using NTLM authentication
 # where it is not a domain logon and not the ANONYMOUS LOGON account.
 
-# Pseudocode
-# This analytic will look for remote logins, using a non domain login, from one 
-# host to another, using NTL authentication where the account is not "ANONYMOUS LOGON"
-
-# EventCode == 4624 and [target_user_name] != "ANONYMOUS LOGON" and
-# [authentication_package_name] == "NTLM"
-
 TECHNIQUES = ['Pass the Hash']
 TACTICS = ['Lateral Movement']
 DURATION_MINS = 30

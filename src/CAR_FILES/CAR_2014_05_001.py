@@ -19,23 +19,6 @@
 # Lateral Movement.
 # According to ATT&CK, adversaries frequently use RPC connections to remotely
 
-# Pseudocode
-# Traffic to the RPC Endpoint Mapper will always have the destination port of 135.
-# Assuming success, RPC traffic will continue to the endpoint. The endpoint and the
-# client both bind to dynamically assigned ports (on Windows, this is typically 
-# greater than 49152). The traffic between the client and endpoint can be detected by 
-# looking at traffic to 135 followed by traffic where the source and destination ports 
-# are at least 49152.
-
-# flows = search Flow:Start
-# rpc_mapper = filter flows where (dest_port == 135)
-# rpc_endpoint = filter flows where (dest_port >= 49152 and src_port >= 49152)
-# rpc = join rpc_mapper, rpc_endpoint where (
-#     (rpc_mapper.time < rpc_endpoint.time < rpc_mapper.time + 2 seconds) and
-#     (rpc_mapper.src_ip == rpc_endpoint.src_ip and rpc_mapper.dest_ip == rpc_endpoint.dest_ip)
-# )
-# output rpc
-
 TECHNIQUES = ['Legitimate Credentials','Remote Services']
 TACTICS = ['Defense Evasion', 'Persistence', 'Privilege Escalation','Lateral Movement']
 DURATION_MINS = 30

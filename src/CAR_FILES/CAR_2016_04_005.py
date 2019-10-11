@@ -5,14 +5,6 @@
 # logons and comparing to known/approved originating systems can detect lateral
 # movement of an adversary.
 
-# Pseudocode
-# Look in the system logs for remote logons using RDP
-
-# [EventCode] == 4624 and
-# [AuthenticationPackageName] == 'Negotiate' and
-# [Severity] == "Information" and
-# [LogonType] == 10
-
 TECHNIQUES = ['Legitimate Credentials']
 TACTICS = ['Lateral Movement']
 DURATION_MINS = 30

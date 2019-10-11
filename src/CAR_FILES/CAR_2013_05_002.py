@@ -8,21 +8,6 @@
 # directories more closely, knowing that they should never contain running
 # processes.
 
-# Pseudocode
-
-# The RECYCLER and SystemVolumeInformation directories will be present on every
-# drive. Replace %systemroot% and %windir% with the actual paths as configured by
-# the endpoints.
-
-# processes = search Process:Create
-# suspicious_locations = filter process where (
-# image_path == "*:\RECYCLER\*" or
-# image_path == "*:\SystemVolumeInformation\*" or
-# image_path == "%windir%\Tasks\*" or 
-# image_path == "%systemroot%\debug\*"
-# )
-# output suspicious_locations
-
 TECHNIQUES = ['Masquerading']
 TACTICS = ['Defense Evasion']
 DURATION_MINS = 30

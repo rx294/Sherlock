@@ -8,15 +8,6 @@
 # baseline and understanding of the environment, monitoring its usage could be
 # fruitful.
 
-# Pseudocode
-# When looking for all instances of RunDLL32, it is imperative to also have the
-# command line information, which contains the DLL information, including the
-# name, entry point, and optional arguments.
-
-# process = search Process:Create
-# rundll32 = filter process where (exe == "rundll32.exe")
-# output rundll32
-
 TECHNIQUES = ['Rundll32']
 TACTICS = ['Defense Evasion', 'Execution']
 DURATION_MINS = 30

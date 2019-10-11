@@ -7,17 +7,6 @@
 # further infection and investigate to determine if caused by crash or user
 # manipulation.
 
-# Pseudocode
-# Windows Event code 7036 from the System log identifies if a service has stopped 
-# or started. This analytic looks for "Windows Defender" or "Windows Firewall" that 
-# has stopped.
-
-# log_name == "System" AND
-# event_code == "7036"
-# param1 in ["Windows Defender", "Windows Firewall"] AND
-# param2 == "stopped"
-
-
 TECHNIQUES = ['Indicator Blocking']
 TACTICS = ['Defense Evasion']
 DURATION_MINS = 30

@@ -11,15 +11,6 @@
 # tasks. For these reasons, schtasks.exe is more commonly used by administrators,
 # tools/scripts, and power users.
 
-# Pseudocode
-# Instances of the process at.exe running imply the querying or creation of
-# tasks. Although the command_line is not essential for the analytic to run, it
-# is critical when identifying the command that was scheduled.
-
-# process = search Process:Create
-# at = filter process where (exe == "at.exe")
-# output at
-
 TECHNIQUES = ['Scheduled Task']
 TACTICS = ['Execution', 'Persistence', 'Privilege Escalation']
 DURATION_MINS = 30

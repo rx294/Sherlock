@@ -8,15 +8,6 @@
 # adversary activity can be a difficult problem in highly dynamic environments,
 # but will be useful in identifying the scope of a compromise.
 
-# Pseudocode
-
-# flow_start = search Flow:Start
-# flow_end = search Flow:End
-# rdp_start = filter flow_start where (port == "3389")
-# rdp_end = filter flow_start where (port == "3389")
-# rdp = group flow_start, flow_end by src_ip, src_port, dest_ip, dest_port
-# output rdp
-
 
 TECHNIQUES = ['Remote Desktop Protocol']
 TACTICS = ['Lateral Movement']

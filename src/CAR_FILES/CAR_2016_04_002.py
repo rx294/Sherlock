@@ -10,15 +10,6 @@
 # enabling redundant event collection. Using a redundant event collection model
 # can minimize the single point of failure risk.
 
-# Pseudocode
-# When an eventlog is cleared, a new event is created that alerts that the eventlog 
-# was cleared. For System logs, its event code 104. For Security logs, it is event code 
-# 1100 and 1102.
-
-# ([log_name] == "System" and [event_code] in [1100, 1102]) or
-# ([log_name] == "Security" and [event_code] == 104)
-
-
 TECHNIQUES = ['Indicator Blocking']
 TACTICS = ['Defense Evasion']
 DURATION_MINS = 30
